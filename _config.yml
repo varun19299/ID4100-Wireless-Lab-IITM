@@ -24,13 +24,13 @@ description: >- # this means to ignore newlines until "baseurl:"
   Data 8, the Foundations of Data Science. The reader's assumed
   background is detailed in the About This Book page.
 
-baseurl: '' # the subpath of your site, e.g. /blog
-url: '' # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: '/content' # the subpath of your site, e.g. /blog
+url: 'https://varun19299.github.io/id4100-intro-to-wireless/' # the base hostname & protocol for your site, e.g. http://example.com
 
 css_url: '/assets/css' # Path to static CSS files
 js_url: '/assets/js' # Path to JS files
 
-github_username: DS-100
+github_username: varun19299
 
 defaults:
   - scope:

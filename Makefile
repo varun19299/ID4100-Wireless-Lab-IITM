@@ -78,5 +78,5 @@ endif
 
 ping_binder: ## Force-updates BinderHub image
 	curl -s https://mybinder.org/build/gh/varun19299/id4100-intro-to-wireless.git/master |\
-		grep -E '${BINDER_REGEXP}' |\
-		sed -E 's/${BINDER_REGEXP}/\1/' &
+	grep -E '${BINDER_REGEXP}' |\
+	sed -E 's/${BINDER_REGEXP}/\1/' 
