@@ -1,0 +1,3477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Principles and Techniques of Data Science</title>
+  <meta name="description" content="This is the textbook for Data 100, the Principles and Techniques of Data Science course at UC Berkeley.
+Data 100 is the upper-division, semester-long data science course that follows Data 8, the Foundations of Data Science. The reader's assumed background is detailed in the About This Book page.">
+
+  <link rel="canonical" href="/ch/01/lifecycle_students_3.html">
+  <link rel="alternate" type="application/rss+xml" title="Principles and Techniques of Data Science" href="/feed.xml">
+
+  <meta property="og:url"         content="/ch/01/lifecycle_students_3.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Principles and Techniques of Data Science" />
+<meta property="og:description" content="This is the textbook for Data 100, the Principles and Techniques of Data Science course at UC Berkeley.
+Data 100 is the upper-division, semester-long data science course that follows Data 8, the Foundations of Data Science. The reader's assumed background is detailed in the About This Book page." />
+<meta property="og:image"       content="" />
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage":
+    "/ch/01/lifecycle_students_3.html",
+  "headline":
+    "Principles and Techniques of Data Science",
+  "datePublished":
+    "2019-03-03T19:56:01+05:30",
+  "dateModified":
+    "2019-03-03T19:56:01+05:30",
+  "description":
+    "This is the textbook for Data 100, the Principles and Techniques of Data Science course at UC Berkeley.
+Data 100 is the upper-division, semester-long data science course that follows Data 8, the Foundations of Data Science. The reader's assumed background is detailed in the About This Book page.",
+  "author": {
+    "@type": "Person",
+    "name": "Sam Lau, Joey Gonzalez, and Deborah Nolan"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Allow inline math using $ and automatically break long math lines -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      CommonHTML: {
+        linebreaks: {
+          automatic: true,
+        },
+      },
+    });
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="/assets/js/turbolinks.js" async></script>
+
+  <!-- Load nbinteract for widgets -->
+  <script src="https://unpkg.com/nbinteract-core" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Google analytics -->
+  <script src="/assets/js/ga.js" async></script>
+</head>
+
+  <body>
+    <!-- Show sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <ul class="c-sidebar__chapters">
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="http://ds100.org/"
+        >
+          
+          Data 100 Homepage
+        </a>
+
+        
+      </li>
+
+      
+    
+
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/"
+        >
+          
+          Introduction
+        </a>
+
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/about_this_book.html"
+        >
+          
+          About This Book
+        </a>
+
+        
+      </li>
+
+      
+    
+
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/01/lifecycle_intro.html"
+        >
+          
+            1.
+          
+          The Data Science Lifecycle
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/01/lifecycle_students_1.html"
+                >
+                  
+                    1.1
+                    
+                  
+                  The Students of Data 100
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/01/lifecycle_students_2.html"
+                >
+                  
+                    1.2
+                    
+                  
+                  Exploring the Data
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry c-sidebar__entry--active"
+                  href="/ch/01/lifecycle_students_3.html"
+                >
+                  
+                    1.3
+                    
+                  
+                  What's in a Name?
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/02/design_intro.html"
+        >
+          
+            2.
+          
+          Data Design
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/02/design_dewey_truman.html"
+                >
+                  
+                    2.1
+                    
+                  
+                  Dewey Defeats Truman
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/02/design_prob_overview.html"
+                >
+                  
+                    2.2
+                    
+                  
+                  Probability Overview
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/02/design_sampling.html"
+                >
+                  
+                    2.3
+                    
+                  
+                  Probability Sampling
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/02/design_srs_vs_big_data.html"
+                >
+                  
+                    2.4
+                    
+                  
+                  SRS vs. "Big Data"
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/03/pandas_intro.html"
+        >
+          
+            3.
+          
+          Tabular Data and pandas
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/03/pandas_structure.html"
+                >
+                  
+                    3.1
+                    
+                  
+                  Structure
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/03/pandas_indexes.html"
+                >
+                  
+                    3.2
+                    
+                  
+                  Indexes, Slicing, and Sorting
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/03/pandas_grouping_pivoting.html"
+                >
+                  
+                    3.3
+                    
+                  
+                  Grouping and Pivoting
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/03/pandas_apply_strings_plotting.html"
+                >
+                  
+                    3.4
+                    
+                  
+                  Apply, Strings, and Plotting
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/04/eda_intro.html"
+        >
+          
+            4.
+          
+          Exploratory Data Analysis
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/04/eda_data_types.html"
+                >
+                  
+                    4.1
+                    
+                  
+                  Data Types
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href=""
+                >
+                  
+                    4.2
+                    
+                  
+                  Distributions [in progress]
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href=""
+                >
+                  
+                    4.3
+                    
+                  
+                  Associations [in progress]
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/05/cleaning_intro.html"
+        >
+          
+            5.
+          
+          Data Cleaning
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_calls.html"
+                >
+                  
+                    5.1
+                    
+                  
+                  Cleaning the Calls Dataset
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_stops.html"
+                >
+                  
+                    5.2
+                    
+                  
+                  Cleaning the Stops Dataset
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_structure.html"
+                >
+                  
+                    5.3
+                    
+                  
+                  Structure and Joins
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_granularity.html"
+                >
+                  
+                    5.4
+                    
+                  
+                  Granularity
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_scope.html"
+                >
+                  
+                    5.5
+                    
+                  
+                  Scope
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_temp.html"
+                >
+                  
+                    5.6
+                    
+                  
+                  Temporality
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_faithfulness.html"
+                >
+                  
+                    5.7
+                    
+                  
+                  Faithfulness
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/06/viz_intro.html"
+        >
+          
+            6.
+          
+          Data Visualization
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/06/viz_quantitative.html"
+                >
+                  
+                    6.1
+                    
+                  
+                  Quantitative Data
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/06/viz_qualitative.html"
+                >
+                  
+                    6.2
+                    
+                  
+                  Qualitative Data
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/06/viz_matplotlib.html"
+                >
+                  
+                    6.3
+                    
+                  
+                  Customizing Plots
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/06/viz_principles.html"
+                >
+                  
+                    6.4
+                    
+                  
+                  Principles of Visualization
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/06/viz_principles_2.html"
+                >
+                  
+                    6.5
+                    
+                  
+                  Principles of Visualization 2
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/06/viz_philosophy.html"
+                >
+                  
+                    6.6
+                    
+                  
+                  Visualization Philosophy
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/07/web_intro.html"
+        >
+          
+            7.
+          
+          Web Technologies
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/07/web_http.html"
+                >
+                  
+                    7.1
+                    
+                  
+                  HTTP
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/08/text_intro.html"
+        >
+          
+            8.
+          
+          Working With Text
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/08/text_strings.html"
+                >
+                  
+                    8.1
+                    
+                  
+                  Python String Methods
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/08/text_regex.html"
+                >
+                  
+                    8.2
+                    
+                  
+                  Regular Expressions
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/08/text_re.html"
+                >
+                  
+                    8.3
+                    
+                  
+                  Regex in Python and pandas
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/09/sql_intro.html"
+        >
+          
+            9.
+          
+          Databases and SQL
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/09/sql_rdbms.html"
+                >
+                  
+                    9.1
+                    
+                  
+                  Relational Databases
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/09/sql_basics.html"
+                >
+                  
+                    9.2
+                    
+                  
+                  SQL Queries
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/09/sql_joins.html"
+                >
+                  
+                    9.3
+                    
+                  
+                  SQL Joins
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/10/modeling_intro.html"
+        >
+          
+            10.
+          
+          Modeling and Estimation
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/10/modeling_simple.html"
+                >
+                  
+                    10.1
+                    
+                  
+                  A Simple Model
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/10/modeling_loss_functions.html"
+                >
+                  
+                    10.2
+                    
+                  
+                  Loss Functions
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/10/modeling_abs_huber.html"
+                >
+                  
+                    10.3
+                    
+                  
+                  Absolute Cost and Huber Cost
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/11/gradient_descent.html"
+        >
+          
+            11.
+          
+          Gradient Descent
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/11/gradient_basics.html"
+                >
+                  
+                    11.1
+                    
+                  
+                  Basic Numerical Optimization
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/11/gradient_descent_define.html"
+                >
+                  
+                    11.2
+                    
+                  
+                  Defining Gradient Descent
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/11/gradient_convexity.html"
+                >
+                  
+                    11.3
+                    
+                  
+                  Convexity
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/11/gradient_stochastic.html"
+                >
+                  
+                    11.4
+                    
+                  
+                  Stochastic Gradient Descent
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/12/prob_and_gen.html"
+        >
+          
+            12.
+          
+          Probability and Generalization
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/12/prob_random_vars.html"
+                >
+                  
+                    12.1
+                    
+                  
+                  Random Variables
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/12/prob_exp_var.html"
+                >
+                  
+                    12.2
+                    
+                  
+                  Expectation and Variance
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/12/prob_risk.html"
+                >
+                  
+                    12.3
+                    
+                  
+                  Risk
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/13/linear_models.html"
+        >
+          
+            13.
+          
+          Linear Regression
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/13/linear_tips.html"
+                >
+                  
+                    13.1
+                    
+                  
+                  Defining a Simple Linear Model
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/13/linear_grad.html"
+                >
+                  
+                    13.2
+                    
+                  
+                  Fitting the Model
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/13/linear_multiple.html"
+                >
+                  
+                    13.3
+                    
+                  
+                  Multiple Linear Regression
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/13/linear_projection.html"
+                >
+                  
+                    13.4
+                    
+                  
+                  A Geometric Perspective
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/13/linear_case_study.html"
+                >
+                  
+                    13.5
+                    
+                  
+                  Linear Regression Case Study
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/14/feature_engineering.html"
+        >
+          
+            14.
+          
+          Feature Engineering
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/14/feature_one_hot.html"
+                >
+                  
+                    14.1
+                    
+                  
+                  One-Hot Encoding
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/14/feature_polynomial.html"
+                >
+                  
+                    14.2
+                    
+                  
+                  Polynomial Regression
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/15/bias_intro.html"
+        >
+          
+            15.
+          
+          Bias-Variance Tradeoff
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/15/bias_risk.html"
+                >
+                  
+                    15.1
+                    
+                  
+                  Risk and Cost Minimization
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/15/bias_modeling.html"
+                >
+                  
+                    15.2
+                    
+                  
+                  Model Bias and Variance
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/15/bias_cv.html"
+                >
+                  
+                    15.3
+                    
+                  
+                  Cross Validation
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/16/reg_intro.html"
+        >
+          
+            16.
+          
+          Regularization
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/16/reg_intuition.html"
+                >
+                  
+                    16.1
+                    
+                  
+                  Regularization Intuition
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/16/reg_ridge.html"
+                >
+                  
+                    16.2
+                    
+                  
+                  L2 Regularization
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/16/reg_lasso.html"
+                >
+                  
+                    16.3
+                    
+                  
+                  L1 Regularization
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/17/classification_intro.html"
+        >
+          
+            17.
+          
+          Classification
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_prob.html"
+                >
+                  
+                    17.1
+                    
+                  
+                  Regression on Probabilities
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_log_model.html"
+                >
+                  
+                    17.2
+                    
+                  
+                  Logistic Model
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_cost.html"
+                >
+                  
+                    17.3
+                    
+                  
+                  Cross-Entropy Loss
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_log_reg.html"
+                >
+                  
+                    17.4
+                    
+                  
+                  Using Logistic Regression
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_cost_justification.html"
+                >
+                  
+                    17.5
+                    
+                  
+                  Justifying Cross-Entropy Loss
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_sgd.html"
+                >
+                  
+                    17.6
+                    
+                  
+                  Fitting a Logistic Model
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_sensitivity_specificity.html"
+                >
+                  
+                    17.7
+                    
+                  
+                  Evaluating Logistic Models
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_multiclass.html"
+                >
+                  
+                    17.8
+                    
+                  
+                  Multiclass Classification
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/18/hyp_intro.html"
+        >
+          
+            18.
+          
+          Statistical Inference
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/18/hyp_introduction.html"
+                >
+                  
+                    18.1
+                    
+                  
+                  Introduction to Hypothesis Testing
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/18/hyp_introduction_part2.html"
+                >
+                  
+                    18.2
+                    
+                  
+                  Permutation Testing
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/18/hyp_regression.html"
+                >
+                  
+                    18.3
+                    
+                  
+                  Bootstrapping for Linear Regression
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/18/hyp_studentized.html"
+                >
+                  
+                    18.4
+                    
+                  
+                  Studentized Bootstrap
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/18/hyp_phacking.html"
+                >
+                  
+                    18.5
+                    
+                  
+                  P-Hacking
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/19/vector_space_review.html"
+        >
+          
+          Appendix: Vector Space Review
+        </a>
+
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/20/ref_intro.html"
+        >
+          
+          Appendix: Reference Tables
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/20/ref_pandas.html"
+                >
+                  
+                  pandas
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/20/ref_seaborn.html"
+                >
+                  
+                  seaborn
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/20/ref_matplotlib.html"
+                >
+                  
+                  matplotlib
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/20/ref_sklearn.html"
+                >
+                  
+                  scikit-learn
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/21/contributors.html"
+        >
+          
+          Appendix: Contributors
+        </a>
+
+        
+      </li>
+
+      
+    
+  </ul>
+</nav>
+
+
+      <main class="c-textbook__page" tabindex="-1">
+        <div class="o-wrapper c-sidebar-toggle">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <button
+    id="js-sidebar-toggle"
+    class="hamburger hamburger--arrowalt is-active"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
+  </button>
+</div>
+
+        <div class="o-wrapper">
+          
+
+<div id="ipython-notebook">
+    <div class="buttons">
+        <button class="interact-button js-nbinteract-widget">
+            Show Widgets
+        </button>
+        <a class="interact-button" href="http://data100.datahub.berkeley.edu/user-redirect/git-pull?repo=https://github.com/DS-100/textbook&subPath=notebooks/01/lifecycle_students_3.ipynb">Open on DataHub</a>
+    </div>
+    
+
+
+
+
+
+
+
+  
+
+  <div class="nbinteract-hide_in
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="c1"># Clear previously defined variables</span>
+<span class="o">%</span><span class="k">reset</span> -f
+
+<span class="c1"># Set directory for data loading to work properly</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/notebooks/01&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+
+  
+
+  <div class="nbinteract-hide_in
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="c1"># Ignore numpy dtype warnings. These warnings are caused by an interaction</span>
+<span class="c1"># between numpy and Cython and can be safely ignored.</span>
+<span class="c1"># Reference: https://stackoverflow.com/a/40846742</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;numpy.dtype size changed&quot;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;numpy.ufunc size changed&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
+<span class="kn">import</span> <span class="nn">nbinteract</span> <span class="k">as</span> <span class="nn">nbi</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># This option stops scientific notation for pandas</span>
+<span class="c1"># pd.set_option(&#39;display.float_format&#39;, &#39;{:.2f}&#39;.format)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+
+  
+
+  <div class="nbinteract-hide_in
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;roster.csv&#39;</span><span class="p">)</span>
+<span class="n">students</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">students</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What's-in-a-Name?">What's in a Name?<a class="anchor-link" href="#What's-in-a-Name?">&#182;</a></h2><p>So far, we have asked a broad question about our data: "Do the first names of students in Data 100 tell us anything about the class?"</p>
+<p>We have cleaned our data by converting all our names to lowercase. During our exploratory data analysis we discovered that our roster contains about 270 names of students in the class and on the waitlist. Most of our first names are between 4 and 8 characters long.</p>
+<p>What else can we discover about our class based on their first names? We might consider a single name from our dataset:</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">students</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;jerry&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From this name we can infer that the student is likely a male. We can also take a guess at the student's age. For example, if we happen to know that Jerry was a very popular baby name in 1998, we might guess that this student is around twenty years old.</p>
+<p>This thinking gives us two new questions to investigate:</p>
+<ol>
+<li>"Do the first names of students in Data 100 tell us the distribution of sex in the class?"</li>
+<li>"Do the first names of students in Data 100 tell us the distribution of ages in the class?"</li>
+</ol>
+<p>In order to investigate these questions, we will need a dataset that associates names with sex and year. Conveniently, the US Social Security department hosts such a dataset online (<a href="https://www.ssa.gov/oact/babynames/index.html">https://www.ssa.gov/oact/babynames/index.html</a>). Their dataset records the names given to babies at birth and is thus often referred to as the Baby Names dataset.</p>
+<p>We will start by downloading and then loading the dataset into Python. Again, don't worry about understanding the code in this this chapter—focus instead on understanding the overall process.</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+
+<span class="n">data_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.ssa.gov/oact/babynames/names.zip&quot;</span>
+<span class="n">local_filename</span> <span class="o">=</span> <span class="s2">&quot;babynames.zip&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">local_filename</span><span class="p">):</span> <span class="c1"># if the data exists don&#39;t download again</span>
+    <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">data_url</span><span class="p">)</span> <span class="k">as</span> <span class="n">resp</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">local_filename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="n">babynames</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">local_filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zf</span><span class="p">:</span>
+    <span class="n">data_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">zf</span><span class="o">.</span><span class="n">filelist</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">==</span> <span class="s2">&quot;txt&quot;</span><span class="p">]</span>
+    <span class="k">def</span> <span class="nf">extract_year_from_filename</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">fn</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">data_files</span><span class="p">:</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">extract_year_from_filename</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">zf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">])</span>
+            <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">year</span>
+            <span class="n">babynames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">babynames</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">babynames</span><span class="p">)</span>
+<span class="n">babynames</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Count</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mary</td>
+      <td>F</td>
+      <td>9217</td>
+      <td>1884</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anna</td>
+      <td>F</td>
+      <td>3860</td>
+      <td>1884</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Emma</td>
+      <td>F</td>
+      <td>2587</td>
+      <td>1884</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2081</th>
+      <td>Verna</td>
+      <td>M</td>
+      <td>5</td>
+      <td>1883</td>
+    </tr>
+    <tr>
+      <th>2082</th>
+      <td>Winnie</td>
+      <td>M</td>
+      <td>5</td>
+      <td>1883</td>
+    </tr>
+    <tr>
+      <th>2083</th>
+      <td>Winthrop</td>
+      <td>M</td>
+      <td>5</td>
+      <td>1883</td>
+    </tr>
+  </tbody>
+</table>
+<p>1891894 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It looks like the dataset contains names, the sex given to the baby, the number of babies with that name, and the year of birth for those babies. To be sure, we check the dataset description from the SSN Office (<a href="https://www.ssa.gov/oact/babynames/background.html">https://www.ssa.gov/oact/babynames/background.html</a>).</p>
+<blockquote><p>All names are from Social Security card applications for births that occurred in the United States after 1879. Note  that many people born before 1937 never applied for a Social Security card, so their names are not included in our data. For others who did apply, our records may not show the place of birth, and again their names are not included in our data.</p>
+<p>All data are from a 100% sample of our records on Social Security card applications as of March 2017.</p>
+</blockquote>
+<p>We begin by plotting the number of male and female babies born each year:</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pivot_year_name_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">babynames</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span>
+    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Count&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+
+<span class="n">pink_blue</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#E188DB&quot;</span><span class="p">,</span> <span class="s2">&quot;#334FFF&quot;</span><span class="p">]</span>
+<span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">pink_blue</span><span class="p">)):</span>
+    <span class="n">pivot_year_name_count</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Registered Names vs Year Stratified by Sex&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Names Registered that Year&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+<div class="output_png output_subarea ">
+<img src="/notebooks-images/lifecycle_students_3_8_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The meteoric rise in babies born in the years leading up to 1920 may seem suspicious. A sentence from the quote above helps explain:</p>
+<blockquote><p>Note that many people born before 1937 never applied for a Social Security card, so their names are not included in our data. For others who did apply, our records may not show the place of birth, and again their names are not included in our data.</p>
+</blockquote>
+<p>We can also see the <a href="https://www.wikiwand.com/en/Baby_boomers">baby boomer period</a> quite clearly in the plot above.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Inferring-Sex-From-Name">Inferring Sex From Name<a class="anchor-link" href="#Inferring-Sex-From-Name">&#182;</a></h3><p>Let's use this dataset to estimate the number of females and males in our class. As with our class roster, we begin by lowercasing the names:</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">babynames</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">babynames</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">babynames</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Count</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>mary</td>
+      <td>F</td>
+      <td>9217</td>
+      <td>1884</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>anna</td>
+      <td>F</td>
+      <td>3860</td>
+      <td>1884</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>emma</td>
+      <td>F</td>
+      <td>2587</td>
+      <td>1884</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2081</th>
+      <td>verna</td>
+      <td>M</td>
+      <td>5</td>
+      <td>1883</td>
+    </tr>
+    <tr>
+      <th>2082</th>
+      <td>winnie</td>
+      <td>M</td>
+      <td>5</td>
+      <td>1883</td>
+    </tr>
+    <tr>
+      <th>2083</th>
+      <td>winthrop</td>
+      <td>M</td>
+      <td>5</td>
+      <td>1883</td>
+    </tr>
+  </tbody>
+</table>
+<p>1891894 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then, we count up how many male and female babies were born in total for each name:</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sex_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">babynames</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Count&#39;</span><span class="p">,</span>
+                            <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sex_counts</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Sex</th>
+      <th>F</th>
+      <th>M</th>
+      <th>All</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aaban</th>
+      <td>0</td>
+      <td>96</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>aabha</th>
+      <td>35</td>
+      <td>0</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>aabid</th>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>zyyon</th>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>zzyzx</th>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>All</th>
+      <td>170639571</td>
+      <td>173894326</td>
+      <td>344533897</td>
+    </tr>
+  </tbody>
+</table>
+<p>96175 rows × 3 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To determine whether a name is more popular for male or female babies, we can compute the proportion of times the name was given to a female baby.</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prop_female</span> <span class="o">=</span> <span class="n">sex_counts</span><span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">sex_counts</span><span class="p">[</span><span class="s1">&#39;All&#39;</span><span class="p">]</span>
+<span class="n">sex_counts</span><span class="p">[</span><span class="s1">&#39;prop_female&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prop_female</span>
+<span class="n">sex_counts</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Sex</th>
+      <th>F</th>
+      <th>M</th>
+      <th>All</th>
+      <th>prop_female</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aaban</th>
+      <td>0</td>
+      <td>96</td>
+      <td>96</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>aabha</th>
+      <td>35</td>
+      <td>0</td>
+      <td>35</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>aabid</th>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>zyyon</th>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>zzyzx</th>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>All</th>
+      <td>170639571</td>
+      <td>173894326</td>
+      <td>344533897</td>
+      <td>0.5</td>
+    </tr>
+  </tbody>
+</table>
+<p>96175 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can then define a function that looks up the proportion of female names given a name.</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sex_from_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">sex_counts</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="n">prop</span> <span class="o">=</span> <span class="n">sex_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;prop_female&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="s1">&#39;F&#39;</span> <span class="k">if</span> <span class="n">prop</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="k">else</span> <span class="s1">&#39;M&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Name not in dataset&#39;</span>
+
+<span class="n">sex_from_name</span><span class="p">(</span><span class="s1">&#39;sam&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;M&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Our-First-Widget">Our First Widget<a class="anchor-link" href="#Our-First-Widget">&#182;</a></h3><p>In this book, we include widgets that allow the reader to interact with functions defined in the book. The widget below displays the output of <code>sex_from_name</code> on a reader-provided name.</p>
+<p>Try typing in the name "josephine" and see how the inferred sex changes as more characters are entered.</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">sex_from_name</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sam&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+  <div class="output_subarea output_widget_view ">
+    <button class="js-nbinteract-widget">
+      Loading widgets...
+    </button>
+  </div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We mark each name in our class roster with its most likely sex.</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">students</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">students</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">sex_from_name</span><span class="p">)</span>
+<span class="n">students</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Role</th>
+      <th>sex</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>keeley</td>
+      <td>Student</td>
+      <td>F</td>
+      <td>1998.15</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>john</td>
+      <td>Student</td>
+      <td>M</td>
+      <td>1951.08</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>bryan</td>
+      <td>Student</td>
+      <td>M</td>
+      <td>1983.57</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>276</th>
+      <td>ernesto</td>
+      <td>Waitlist Student</td>
+      <td>M</td>
+      <td>1981.44</td>
+    </tr>
+    <tr>
+      <th>277</th>
+      <td>athan</td>
+      <td>Waitlist Student</td>
+      <td>M</td>
+      <td>2004.40</td>
+    </tr>
+    <tr>
+      <th>278</th>
+      <td>michael</td>
+      <td>Waitlist Student</td>
+      <td>M</td>
+      <td>1971.18</td>
+    </tr>
+  </tbody>
+</table>
+<p>279 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now it is easy to estimate how many male and female students we have:</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">students</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>M                      144
+F                       92
+Name not in dataset     43
+Name: sex, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Inferring-Age-From-Name">Inferring Age From Name<a class="anchor-link" href="#Inferring-Age-From-Name">&#182;</a></h3><p>We can proceed in a similar way to estimate the age distribution of the class, mapping each name to its average age in the dataset.</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">avg_year</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">])</span>
+
+<span class="n">avg_years</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">babynames</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">avg_year</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;avg_year&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">avg_years</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>avg_year</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>aaban</th>
+      <td>2012.57</td>
+    </tr>
+    <tr>
+      <th>aabha</th>
+      <td>2013.71</td>
+    </tr>
+    <tr>
+      <th>aabid</th>
+      <td>2009.50</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>zyyanna</th>
+      <td>2010.00</td>
+    </tr>
+    <tr>
+      <th>zyyon</th>
+      <td>2014.00</td>
+    </tr>
+    <tr>
+      <th>zzyzx</th>
+      <td>2010.00</td>
+    </tr>
+  </tbody>
+</table>
+<p>96174 rows × 1 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As before, we define a function to lookup the average birth year using a given name. We've included a widget for the reader to try out some names. We suggest trying names that seem older (e.g. "Mary") and names that seem newer (e.g. "Beyonce").</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">year_from_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">avg_years</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;avg_year&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">avg_years</span><span class="o">.</span><span class="n">index</span>
+            <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># Generate input box for you to try some names out:</span>
+<span class="n">interact</span><span class="p">(</span><span class="n">year_from_name</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;fernando&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+  <div class="output_subarea output_widget_view ">
+    <button class="js-nbinteract-widget">
+      Loading widgets...
+    </button>
+  </div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, we can mark each name in Data 100 with its inferred birth year.</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">students</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">students</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">year_from_name</span><span class="p">)</span>
+<span class="n">students</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Role</th>
+      <th>sex</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>keeley</td>
+      <td>Student</td>
+      <td>F</td>
+      <td>1998.15</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>john</td>
+      <td>Student</td>
+      <td>M</td>
+      <td>1951.08</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>bryan</td>
+      <td>Student</td>
+      <td>M</td>
+      <td>1983.57</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>276</th>
+      <td>ernesto</td>
+      <td>Waitlist Student</td>
+      <td>M</td>
+      <td>1981.44</td>
+    </tr>
+    <tr>
+      <th>277</th>
+      <td>athan</td>
+      <td>Waitlist Student</td>
+      <td>M</td>
+      <td>2004.40</td>
+    </tr>
+    <tr>
+      <th>278</th>
+      <td>michael</td>
+      <td>Waitlist Student</td>
+      <td>M</td>
+      <td>1971.18</td>
+    </tr>
+  </tbody>
+</table>
+<p>279 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then, it is easy to plot the distribution of years:</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">());</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+<div class="output_png output_subarea ">
+<img src="/notebooks-images/lifecycle_students_3_31_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To compute the average year:</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">students</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1983.846741800525</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our class has an average age of 35 years old—nearly twice our expected age in a course for college undergraduates. Why might our estimate be so far off?</p>
+<p>As data scientists, we often run into results that don't agree with our expectations. Our constant challenge is to determine whether surprising results are caused by an error in our procedure or by an actual, real-world phenomenon. Since there are no simple recipes to guarantee accurate conclusions, data scientists must equip themselves with guidelines and principles to reduce the likelihood of false discovery.</p>
+<p>In this particular case, the most likely explanation for our unexpected result is that most common names have been used for many years. For example, the name John was quite popular throughout the history recorded in our data. We can confirm this by plotting the number of babies given the name "John" each year:</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="n">babynames</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">john</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;john&#39;</span><span class="p">]</span>
+<span class="n">john</span><span class="p">[</span><span class="n">john</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;M&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequency of &quot;John&quot;&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+<div class="output_png output_subarea ">
+<img src="/notebooks-images/lifecycle_students_3_35_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It appears that the average birth year does not provide an accurate estimate for a given person's age in general. In a few cases, however, a person's first name is quite revealing!</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="n">babynames</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">kanye</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;kanye&#39;</span><span class="p">]</span>
+<span class="n">kanye</span><span class="p">[</span><span class="n">kanye</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;M&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequency of &quot;Kanye&quot;&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+<div class="output_png output_subarea ">
+<img src="/notebooks-images/lifecycle_students_3_37_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>In this chapter, we walk through a complete iteration of the data science lifecycle: question formulation, data manipulation, exploratory data analysis, and prediction. We expand upon each of these steps in the following chapters.</p>
+<p>The first half of the book (chapters 1-9) broadly covers the first three steps in the lifecycle and has a strong focus on computation. The second half of the book (chapters 10-18) uses both computational and statistical thinking to cover modeling, inference, and prediction.</p>
+<p>As a whole, this book hopes to impart the reader with the principles and techniques of data science.</p>
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+
+          <nav class="c-page__nav">
+  
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/ch/01/lifecycle_students_2.html">
+      〈 <span class="u-margin-right-tiny"></span> Previous
+    </a>
+  
+
+  
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/ch/02/design_intro.html">
+      Next <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+        </div>
+      </main>
+    </div>
+
+    <script>
+      window.ga =
+  window.ga ||
+  function() {
+    ;(ga.q = ga.q || []).push(arguments)
+  }
+ga.l = +new Date()
+ga('create', 'UA-113006011-1', 'auto')
+ga('send', 'pageview')
+
+    </script>
+  </body>
+</html>

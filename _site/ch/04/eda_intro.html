@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Principles and Techniques of Data Science</title>
+  <meta name="description" content="This is the textbook for Data 100, the Principles and Techniques of Data Science course at UC Berkeley.
+Data 100 is the upper-division, semester-long data science course that follows Data 8, the Foundations of Data Science. The reader's assumed background is detailed in the About This Book page.">
+
+  <link rel="canonical" href="/ch/04/eda_intro.html">
+  <link rel="alternate" type="application/rss+xml" title="Principles and Techniques of Data Science" href="/feed.xml">
+
+  <meta property="og:url"         content="/ch/04/eda_intro.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Principles and Techniques of Data Science" />
+<meta property="og:description" content="This is the textbook for Data 100, the Principles and Techniques of Data Science course at UC Berkeley.
+Data 100 is the upper-division, semester-long data science course that follows Data 8, the Foundations of Data Science. The reader's assumed background is detailed in the About This Book page." />
+<meta property="og:image"       content="" />
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage":
+    "/ch/04/eda_intro.html",
+  "headline":
+    "Principles and Techniques of Data Science",
+  "datePublished":
+    "2019-03-03T19:56:01+05:30",
+  "dateModified":
+    "2019-03-03T19:56:01+05:30",
+  "description":
+    "This is the textbook for Data 100, the Principles and Techniques of Data Science course at UC Berkeley.
+Data 100 is the upper-division, semester-long data science course that follows Data 8, the Foundations of Data Science. The reader's assumed background is detailed in the About This Book page.",
+  "author": {
+    "@type": "Person",
+    "name": "Sam Lau, Joey Gonzalez, and Deborah Nolan"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Allow inline math using $ and automatically break long math lines -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      CommonHTML: {
+        linebreaks: {
+          automatic: true,
+        },
+      },
+    });
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="/assets/js/turbolinks.js" async></script>
+
+  <!-- Load nbinteract for widgets -->
+  <script src="https://unpkg.com/nbinteract-core" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Google analytics -->
+  <script src="/assets/js/ga.js" async></script>
+</head>
+
+  <body>
+    <!-- Show sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <ul class="c-sidebar__chapters">
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="http://ds100.org/"
+        >
+          
+          Data 100 Homepage
+        </a>
+
+        
+      </li>
+
+      
+    
+
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/"
+        >
+          
+          Introduction
+        </a>
+
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/about_this_book.html"
+        >
+          
+          About This Book
+        </a>
+
+        
+      </li>
+
+      
+    
+
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/01/lifecycle_intro.html"
+        >
+          
+            1.
+          
+          The Data Science Lifecycle
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/01/lifecycle_students_1.html"
+                >
+                  
+                    1.1
+                    
+                  
+                  The Students of Data 100
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/01/lifecycle_students_2.html"
+                >
+                  
+                    1.2
+                    
+                  
+                  Exploring the Data
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/01/lifecycle_students_3.html"
+                >
+                  
+                    1.3
+                    
+                  
+                  What's in a Name?
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/02/design_intro.html"
+        >
+          
+            2.
+          
+          Data Design
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/02/design_dewey_truman.html"
+                >
+                  
+                    2.1
+                    
+                  
+                  Dewey Defeats Truman
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/02/design_prob_overview.html"
+                >
+                  
+                    2.2
+                    
+                  
+                  Probability Overview
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/02/design_sampling.html"
+                >
+                  
+                    2.3
+                    
+                  
+                  Probability Sampling
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/02/design_srs_vs_big_data.html"
+                >
+                  
+                    2.4
+                    
+                  
+                  SRS vs. "Big Data"
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/03/pandas_intro.html"
+        >
+          
+            3.
+          
+          Tabular Data and pandas
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/03/pandas_structure.html"
+                >
+                  
+                    3.1
+                    
+                  
+                  Structure
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/03/pandas_indexes.html"
+                >
+                  
+                    3.2
+                    
+                  
+                  Indexes, Slicing, and Sorting
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/03/pandas_grouping_pivoting.html"
+                >
+                  
+                    3.3
+                    
+                  
+                  Grouping and Pivoting
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/03/pandas_apply_strings_plotting.html"
+                >
+                  
+                    3.4
+                    
+                  
+                  Apply, Strings, and Plotting
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry c-sidebar__entry--active"
+          href="/ch/04/eda_intro.html"
+        >
+          
+            4.
+          
+          Exploratory Data Analysis
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/04/eda_data_types.html"
+                >
+                  
+                    4.1
+                    
+                  
+                  Data Types
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href=""
+                >
+                  
+                    4.2
+                    
+                  
+                  Distributions [in progress]
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href=""
+                >
+                  
+                    4.3
+                    
+                  
+                  Associations [in progress]
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/05/cleaning_intro.html"
+        >
+          
+            5.
+          
+          Data Cleaning
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_calls.html"
+                >
+                  
+                    5.1
+                    
+                  
+                  Cleaning the Calls Dataset
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_stops.html"
+                >
+                  
+                    5.2
+                    
+                  
+                  Cleaning the Stops Dataset
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_structure.html"
+                >
+                  
+                    5.3
+                    
+                  
+                  Structure and Joins
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_granularity.html"
+                >
+                  
+                    5.4
+                    
+                  
+                  Granularity
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_scope.html"
+                >
+                  
+                    5.5
+                    
+                  
+                  Scope
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_temp.html"
+                >
+                  
+                    5.6
+                    
+                  
+                  Temporality
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/05/cleaning_faithfulness.html"
+                >
+                  
+                    5.7
+                    
+                  
+                  Faithfulness
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/06/viz_intro.html"
+        >
+          
+            6.
+          
+          Data Visualization
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/06/viz_quantitative.html"
+                >
+                  
+                    6.1
+                    
+                  
+                  Quantitative Data
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/06/viz_qualitative.html"
+                >
+                  
+                    6.2
+                    
+                  
+                  Qualitative Data
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/06/viz_matplotlib.html"
+                >
+                  
+                    6.3
+                    
+                  
+                  Customizing Plots
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/06/viz_principles.html"
+                >
+                  
+                    6.4
+                    
+                  
+                  Principles of Visualization
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/06/viz_principles_2.html"
+                >
+                  
+                    6.5
+                    
+                  
+                  Principles of Visualization 2
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/06/viz_philosophy.html"
+                >
+                  
+                    6.6
+                    
+                  
+                  Visualization Philosophy
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/07/web_intro.html"
+        >
+          
+            7.
+          
+          Web Technologies
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/07/web_http.html"
+                >
+                  
+                    7.1
+                    
+                  
+                  HTTP
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/08/text_intro.html"
+        >
+          
+            8.
+          
+          Working With Text
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/08/text_strings.html"
+                >
+                  
+                    8.1
+                    
+                  
+                  Python String Methods
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/08/text_regex.html"
+                >
+                  
+                    8.2
+                    
+                  
+                  Regular Expressions
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/08/text_re.html"
+                >
+                  
+                    8.3
+                    
+                  
+                  Regex in Python and pandas
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/09/sql_intro.html"
+        >
+          
+            9.
+          
+          Databases and SQL
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/09/sql_rdbms.html"
+                >
+                  
+                    9.1
+                    
+                  
+                  Relational Databases
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/09/sql_basics.html"
+                >
+                  
+                    9.2
+                    
+                  
+                  SQL Queries
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/09/sql_joins.html"
+                >
+                  
+                    9.3
+                    
+                  
+                  SQL Joins
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/10/modeling_intro.html"
+        >
+          
+            10.
+          
+          Modeling and Estimation
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/10/modeling_simple.html"
+                >
+                  
+                    10.1
+                    
+                  
+                  A Simple Model
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/10/modeling_loss_functions.html"
+                >
+                  
+                    10.2
+                    
+                  
+                  Loss Functions
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/10/modeling_abs_huber.html"
+                >
+                  
+                    10.3
+                    
+                  
+                  Absolute Cost and Huber Cost
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/11/gradient_descent.html"
+        >
+          
+            11.
+          
+          Gradient Descent
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/11/gradient_basics.html"
+                >
+                  
+                    11.1
+                    
+                  
+                  Basic Numerical Optimization
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/11/gradient_descent_define.html"
+                >
+                  
+                    11.2
+                    
+                  
+                  Defining Gradient Descent
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/11/gradient_convexity.html"
+                >
+                  
+                    11.3
+                    
+                  
+                  Convexity
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/11/gradient_stochastic.html"
+                >
+                  
+                    11.4
+                    
+                  
+                  Stochastic Gradient Descent
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/12/prob_and_gen.html"
+        >
+          
+            12.
+          
+          Probability and Generalization
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/12/prob_random_vars.html"
+                >
+                  
+                    12.1
+                    
+                  
+                  Random Variables
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/12/prob_exp_var.html"
+                >
+                  
+                    12.2
+                    
+                  
+                  Expectation and Variance
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/12/prob_risk.html"
+                >
+                  
+                    12.3
+                    
+                  
+                  Risk
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/13/linear_models.html"
+        >
+          
+            13.
+          
+          Linear Regression
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/13/linear_tips.html"
+                >
+                  
+                    13.1
+                    
+                  
+                  Defining a Simple Linear Model
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/13/linear_grad.html"
+                >
+                  
+                    13.2
+                    
+                  
+                  Fitting the Model
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/13/linear_multiple.html"
+                >
+                  
+                    13.3
+                    
+                  
+                  Multiple Linear Regression
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/13/linear_projection.html"
+                >
+                  
+                    13.4
+                    
+                  
+                  A Geometric Perspective
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/13/linear_case_study.html"
+                >
+                  
+                    13.5
+                    
+                  
+                  Linear Regression Case Study
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/14/feature_engineering.html"
+        >
+          
+            14.
+          
+          Feature Engineering
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/14/feature_one_hot.html"
+                >
+                  
+                    14.1
+                    
+                  
+                  One-Hot Encoding
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/14/feature_polynomial.html"
+                >
+                  
+                    14.2
+                    
+                  
+                  Polynomial Regression
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/15/bias_intro.html"
+        >
+          
+            15.
+          
+          Bias-Variance Tradeoff
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/15/bias_risk.html"
+                >
+                  
+                    15.1
+                    
+                  
+                  Risk and Cost Minimization
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/15/bias_modeling.html"
+                >
+                  
+                    15.2
+                    
+                  
+                  Model Bias and Variance
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/15/bias_cv.html"
+                >
+                  
+                    15.3
+                    
+                  
+                  Cross Validation
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/16/reg_intro.html"
+        >
+          
+            16.
+          
+          Regularization
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/16/reg_intuition.html"
+                >
+                  
+                    16.1
+                    
+                  
+                  Regularization Intuition
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/16/reg_ridge.html"
+                >
+                  
+                    16.2
+                    
+                  
+                  L2 Regularization
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/16/reg_lasso.html"
+                >
+                  
+                    16.3
+                    
+                  
+                  L1 Regularization
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/17/classification_intro.html"
+        >
+          
+            17.
+          
+          Classification
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_prob.html"
+                >
+                  
+                    17.1
+                    
+                  
+                  Regression on Probabilities
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_log_model.html"
+                >
+                  
+                    17.2
+                    
+                  
+                  Logistic Model
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_cost.html"
+                >
+                  
+                    17.3
+                    
+                  
+                  Cross-Entropy Loss
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_log_reg.html"
+                >
+                  
+                    17.4
+                    
+                  
+                  Using Logistic Regression
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_cost_justification.html"
+                >
+                  
+                    17.5
+                    
+                  
+                  Justifying Cross-Entropy Loss
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_sgd.html"
+                >
+                  
+                    17.6
+                    
+                  
+                  Fitting a Logistic Model
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_sensitivity_specificity.html"
+                >
+                  
+                    17.7
+                    
+                  
+                  Evaluating Logistic Models
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/17/classification_multiclass.html"
+                >
+                  
+                    17.8
+                    
+                  
+                  Multiclass Classification
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/18/hyp_intro.html"
+        >
+          
+            18.
+          
+          Statistical Inference
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/18/hyp_introduction.html"
+                >
+                  
+                    18.1
+                    
+                  
+                  Introduction to Hypothesis Testing
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/18/hyp_introduction_part2.html"
+                >
+                  
+                    18.2
+                    
+                  
+                  Permutation Testing
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/18/hyp_regression.html"
+                >
+                  
+                    18.3
+                    
+                  
+                  Bootstrapping for Linear Regression
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/18/hyp_studentized.html"
+                >
+                  
+                    18.4
+                    
+                  
+                  Studentized Bootstrap
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/18/hyp_phacking.html"
+                >
+                  
+                    18.5
+                    
+                  
+                  P-Hacking
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/19/vector_space_review.html"
+        >
+          
+          Appendix: Vector Space Review
+        </a>
+
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/20/ref_intro.html"
+        >
+          
+          Appendix: Reference Tables
+        </a>
+
+        
+
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/20/ref_pandas.html"
+                >
+                  
+                  pandas
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/20/ref_seaborn.html"
+                >
+                  
+                  seaborn
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/20/ref_matplotlib.html"
+                >
+                  
+                  matplotlib
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/ch/20/ref_sklearn.html"
+                >
+                  
+                  scikit-learn
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/ch/21/contributors.html"
+        >
+          
+          Appendix: Contributors
+        </a>
+
+        
+      </li>
+
+      
+    
+  </ul>
+</nav>
+
+
+      <main class="c-textbook__page" tabindex="-1">
+        <div class="o-wrapper c-sidebar-toggle">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <button
+    id="js-sidebar-toggle"
+    class="hamburger hamburger--arrowalt is-active"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
+  </button>
+</div>
+
+        <div class="o-wrapper">
+          
+
+<div id="ipython-notebook">
+    <div class="buttons">
+        <button class="interact-button js-nbinteract-widget">
+            Show Widgets
+        </button>
+        <a class="interact-button" href="http://data100.datahub.berkeley.edu/user-redirect/git-pull?repo=https://github.com/DS-100/textbook&subPath=notebooks/04/eda_intro.ipynb">Open on DataHub</a>
+    </div>
+    
+
+
+
+
+
+
+
+  
+
+  <div class="nbinteract-hide_in
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="c1"># Clear previously defined variables</span>
+<span class="o">%</span><span class="k">reset</span> -f
+
+<span class="c1"># Set directory for data loading to work properly</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/notebooks/04&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Exploratory-Data-Analysis">Exploratory Data Analysis<a class="anchor-link" href="#Exploratory-Data-Analysis">&#182;</a></h1><p>In exploratory data analysis (EDA), a major component of the data science lifecycle, we summarize, visualize, and transform data in order to understand them more deeply. John Tukey, the statistician that defined the term EDA, writes:</p>
+<blockquote><p>‘Exploratory data analysis’ is an attitude, a state of flexibility, a willingness to look for those things that we believe are not there, as well as those we believe to be there.</p>
+</blockquote>
+<p>A student of data science may find this definition unsatisfying — will an attitude alone generate a data analysis? Tukey's point, however, is that we should understand the data before rushing to apply statistical tests. We would benefit from remembering his words in today's resurgence of algorithmic decision-making.</p>
+<p>Through exploratory data analysis we seek to deeply understand our data. Maintaining "a state of flexibility" helps us know what to look for. Fluency with our computational tools allows us to conduct our search. In this chapter, we emphasize the necessary attitude as we introduce increasingly sophisticated tools. Although EDA varies between domains of study, we almost always begin EDA by understanding:</p>
+<ol>
+<li>The data types of columns and the granularity of rows in the dataset.</li>
+<li>The distributions of quantitative data and measures of center and spread.</li>
+<li>Relationships between quantities in the dataset.</li>
+</ol>
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+
+          <nav class="c-page__nav">
+  
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/ch/03/pandas_apply_strings_plotting.html">
+      〈 <span class="u-margin-right-tiny"></span> Previous
+    </a>
+  
+
+  
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/ch/04/eda_data_types.html">
+      Next <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+        </div>
+      </main>
+    </div>
+
+    <script>
+      window.ga =
+  window.ga ||
+  function() {
+    ;(ga.q = ga.q || []).push(arguments)
+  }
+ga.l = +new Date()
+ga('create', 'UA-113006011-1', 'auto')
+ga('send', 'pageview')
+
+    </script>
+  </body>
+</html>

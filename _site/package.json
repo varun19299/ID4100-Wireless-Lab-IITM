@@ -1,0 +1,29 @@
+{
+  "name": "id4100",
+  "version": "1.0.0",
+  "description": "ID4100 Project Page",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "ebook-convert": "^2.0.1",
+    "gitbook-cli": "^2.3.2",
+    "mathjax-node": "^2.1.1",
+    "mathjax-node-page": "^3.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varun19299/id4100-intro-to-wireless.git"
+  },
+  "author": "Varun Sundar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/varun19299/id4100-intro-to-wireless/issues"
+  },
+  "homepage": "https://github.com/varun19299/id4100-intro-to-wireless#readme"
+}
