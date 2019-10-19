@@ -1,0 +1,20 @@
+baseURL = "https://varun19299.github.io/wireless-lab-iitm/"
+languageCode = "en-us"
+title = "Wireless Lab IIT-M"
+description = "A port of the Tale theme for Hugo. Tale is a minimal Jekyll theme curated for storytellers."
+
+theme = "tale"
+canonifyURLs = true
+
+# Menus
+[menu]
+
+  [[menu.main]]
+    name = "About"
+    url = "/"
+    weight = -110
+
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = -100
