@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Small Scale Fading &middot; Wireless Lab IIT-M</title>
+
+		
+  		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/style.css">
+		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/fonts.css">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://varun19299.github.io/wireless-lab-iitm/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Wireless Lab IIT-M" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="https://varun19299.github.io/wireless-lab-iitm/">
+					<h2 class="nav-title">Wireless Lab IIT-M</h2>
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="https://varun19299.github.io/wireless-lab-iitm/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+                
+                <span></span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    
+    <br> Date:
+    <time datetime="2019-10-10 00:00:00 &#43;0000 UTC">October 10, 2019</time>
+</div>
+		<h1 class="post-title">Small Scale Fading</h1>
+<div class="post-line"></div>
+
+		
+
+		
+
+<p><em>Note: Unless there is possible confusion with large-scale fading we shall refer to small-scale fading as fading itself.</em></p>
+
+<p>Fading is the rapid variation of the received signal level in the short term as the user terminal moves a short distance. It is due to the effect of multiple signal paths, which cause interference when they arrive subsequently in the receive antenna with varying phases (i.e., constructive interference with the same phase and destructive interference with a different phase).</p>
+
+<p>Thus, we may notice three main effects:</p>
+
+<ul>
+<li>Rapid changes in signal strength over a small travel distance or time interval</li>
+<li>Random frequency modulation due to varying Doppler shifts on different multipath signals</li>
+<li>Time dispersion caused by multipath propagation delays</li>
+</ul>
+
+<p>Factors affecting fading include:</p>
+
+<ul>
+<li>mobile speed: Doppler shifts</li>
+<li>speed of surrounding objects</li>
+<li>multipath propogation: reflections from other objects</li>
+<li>transmission bandwidth of signal: The received signal will be distorted if the transmission bandwidth is greater than the bandwidth of the multipath channel.</li>
+</ul>
+
+<h2 id="parameters-for-small-scale-fading">Parameters for small scale fading</h2>
+
+<p>How do we characterise this fading? Well, we usually look at a power delay profile (PDP) which is a table of delays versus their average powers. The average power is often calculated in relation to the first received signal, called the tap. So the average power of the tap in decibels would be 0 (by construction).</p>
+
+<p><em>Mean excess delay</em> and <em>RMS delay spread</em> are useful channel parameters that provide a reference of comparison among the different multipath fading channels, and furthermore, show a general guideline to design a wireless transmission system.</p>
+
+<p>Let $\tau_k$ denote the denote the channel delay of the kth path while $a_k$ and $P(\tau_k)$ denote the amplitude and power, respectively. Then, the <strong>Mean excess delay</strong> $\overline{\tau}$ is given by the first moment of PDP as:</p>
+
+<p><code>\begin{align*}
+\overline{\tau} &amp;= \frac{\sum_k a_k^2 \tau_k}{\sum_k a_k^2} &amp;= \frac{\sum_k P(\tau_k) \tau_k}{\sum_k P(\tau_k)}
+\end{align*}</code></p>
+
+<p>Meanwhile, <strong>RMS delay spread</strong> $\sigma_{\tau}$ is given by the square root of the second central moment of PDP as:</p>
+
+<p><code>$$ \sigma_{\tau} = \sqrt{\overline{\tau^2} - \overline{\tau}^2}$$</code>,</p>
+
+<p>with,</p>
+
+<p><code>\begin{align*}
+\overline{\tau^2} &amp;= \frac{\sum_k a_k^2 \tau_k^2}{\sum_k a_k^2} &amp;= \frac{\sum_k P(\tau_k) \tau_k^2}{\sum_k P(\tau_k)}
+\end{align*}</code></p>
+
+<p>We also define the <strong>coherence bandwidth</strong> $B<em>c := 1/\sigma</em>{\tau}$. Technically, this depends on the definition of coherence bandwidth, for instance, in the case where the coherence bandwidth is defined as a bandwidth with correlation of 0.9 or above, we get:</p>
+
+<p><code>$$B_c := \frac{1}{50\sigma_{\tau}}$$</code></p>
+
+<h2 id="time-dispersive-versus-frequency-dispersive-fading">Time Dispersive versus Frequency Dispersive Fading</h2>
+
+<p>As noted earlier, fading can be caused by both multi-path propogation or the Doppler effect. The former induces time dispersive fading, while the latter induces frequency dispersive fading. Depending on the extent of time dispersion or frequency dispersion, the frequency-selective fading or time-selective fading is induced respectively.</p>
+
+<h3 id="frequency-selective-fading-channel">Frequency-Selective Fading Channel</h3>
+
+<p>Due to time dispersion, a transmit signal may undergo fading over a frequency domain either in a selective or non-selective manner, which is referred to as <em>frequency-selective fading</em> or <em>frequency-non-selective fading</em> respectively. For the given channel frequency response, frequency selectivity is generally governed by signal bandwidth.</p>
+
+<p>One can think of this as a transfer function being acted upon the signal $x(t)$ by $h(t,\tau)$ to produce $y(t)$.</p>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/intuit_freq.png" alt="Intuitive fig" /></p>
+
+<p>Intuitively, if the signal bandwidth is narrow enough, we may transmit it over the flat region of the transfer function. In the time domain, this means $\tau &lt;&lt; T_s$ . One may also observe that this essentially means that ISI (inter-symbol interference) is not significant. We capture this in figure 1.</p>
+
+<p>To summarise, this requires $B_s &lt;&lt; B_c$ or $T<em>s &gt;&gt; \sigma</em>{\tau}$.</p>
+
+<p>On the other hand if $B_s &gt; B<em>c$ or $\sigma</em>{\tau} &gt; 0.1T_s$, then we cannot make the former assumption. ISI occurs due the symbol duration being much shorter than the multipath delay spread. Owing to the condition, we often call it a wide band channel.</p>
+
+<h2 id="time-selective-fading-channel">Time-Selective Fading Channel</h2>
+
+<p>Depending on the extent of the Doppler spread, the received signal undergoes fast or slow fading. In a fast fading channel, the coherence time is smaller than the symbol period and thus, a channel impulse response quickly varies within the symbol period. Variation in the time domain is closely related to movement of the transmitter or receiver, which incurs a spread in the frequency domain, known as a Doppler shift.</p>
+
+<p>Let $f_m$ be the maximum Doppler shift. The bandwidth of Doppler spectrum,denoted as $B_d$,is given as $B_d = 2f_m$.In general,the coherence time, denoted as $T_c := \frac{1}{f_m}$, is inversely proportional to Doppler spread.</p>
+
+<p>Therefore, $T_s &gt; T_c$ implies $B_s &lt; B_d$ , which is the condition for fast fading.</p>
+
+<p>But if the Doppler spread is much smaller than the bandwidth of the baseband transmit signal, we get slow fading, ie&hellip;, $T_s &lt;&lt; T_c, B_s &gt;&gt; B_c$.</p>
+
+<p>Note, if we were to define coherence with a correlation of 0.5, then $T_c$ would be defined as:</p>
+
+<p><code>$$ T_c := \frac{9}{16\pi f_m}$$</code></p>
+
+<p>In order to account for both scenarios, we often just take the geometric mean between the two as the definition. Hence,</p>
+
+<p><code>$$ T_c := \sqrt{\frac{9}{16\pi f_m^2}} = \frac{0.423}{f_m} $$</code></p>
+
+<h2 id="statistical-modelling">Statistical Modelling</h2>
+
+<p>Finally, armed with the parameters from the preceeding two sections, we can describe a statistical model for fading.</p>
+
+<p>Consider a plane wave arriving from angle $\theta$ with respect to the direction of a terminal movement with a speed of $v$, where all waves are arriving from a horizontal direction on $x-y$ plane. This is depicted in figure 2.</p>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/planewave.png" alt="Stat Modelling" /></p>
+
+<p>As a mobile station moves, all planewaves arriving at the receiver undergo the Doppler shift. Let $x(t)$ be a baseband transmit signal. Then, the corresponding passband transmit signal is given as:</p>
+
+<p><code>$$ \tilde{x}(t) = Re[x(t)\exp(j2\pi f_c t)]$$</code></p>
+
+<p>Passing through a scattered channel of $I$ different propagation paths with different Doppler shifts, the passband received signal can be represented as:</p>
+
+<p><code>\begin{align*}
+\tilde{y}(t) &amp;= Re[\sum_{i=1}^I C_i x(t-\tau_i) \exp(j2\pi (f_c + f_i) t)] \\
+&amp;= Re[y(t) \exp(j2\pi f_c t)] \\
+\end{align*}</code></p>
+
+<p>where, $C_i, t_i$, and $f_i$ denote the channel gain, delay, and Doppler shift for the ith propagation
+path, respectively. For the mobile speed of $v$ and the wavelength of $l$, Doppler shift is given as:</p>
+
+<p><code>$$f_i = f_m \cos \theta_i = \frac{v}{\lambda} \cos \theta_i$$</code></p>
+
+<p>where $f_m$ is the maximum Doppler shift and $\theta_i$ is the angle of arrival (AoA) for the ith planewave. Note that the baseband received signal is given as:</p>
+
+<p><code>$$y(t) = \sum_{i=1}^I C_i \exp(-j\phi (t)) x(t-\tau_i) \quad \text{where, } \phi(t) = 2\pi ((f_c+f_i)\tau_i -f_it_i)$$</code></p>
+
+<p>We can model this by the transfer function:</p>
+
+<p><code>$$h(t,\tau) = \sum_{i=1}^I C_i \exp(-j\phi (t)) \delta (t-\tau_i)$$</code>, with $\delta(.)$ as the Dirac-delta function.</p>
+
+<p>If $\tau_i &lt;&lt; T_s$, we can approximate it as $\overline{\tau}$, thus:</p>
+
+<p><code>$$h(t,\tau) = h(t) \delta (t-\overline{\tau})$$</code></p>
+
+<p>Hence,</p>
+
+<p><code>$$\tilde{y}(t) = h_I(t) \cos 2\pi f_ct - h_Q(t)\sin 2\pi f_ct$$</code>, where $h_I(t)$ and $h_Q(t)$ are the inphase and quadrature components of $h(t)$ respectively, given as:</p>
+
+<p><code>$$h_I(t) = \sum_i C_i \cos \phi_i(t), h_Q(t) = \sum_i C_i \sin \phi_i(t) $$</code>.</p>
+
+<h2 id="central-limit-theorem">Central Limit Theorem</h2>
+
+<p>We now make use of the central limit theorem, which is a variant of the law of large numbers. In essense, it states that if we were to add a sufficiently number of <em>normalised</em> random quantities (formally random variables, provided independent), we would get a gaussian distribution.</p>
+
+<p>Formally,</p>
+
+<p><code>$$\sum_{i=1}^n Z_i \to^{\text{in dist}} \mathcal{N}(0,1) \quad \text{where, } Z_i = \frac{X_i - \mu_i}{\sigma_i}$$</code></p>
+
+<p>In figure 3, which is an empirical verification of the Central Limit Theorem, notice how closely the gaussian approxmiates the normalised sum. In practice, we can safely assume the central limit theorem for summands greater than 30 in number. Provided they are independent.</p>
+
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = [10, 10]
+%matplotlib inline 
+
+# Bunch of RVs
+ss1 = np.random.uniform(1, 3, 10000)
+ss2 = np.random.normal(1, 0.1, 10000)
+ss3 = np.random.beta(0.1, 1, 10000)
+ss4 = np.random.binomial(10, 0.1, 10000)
+ss4 = np.random.chisquare(4, 10000)
+ss5 = np.random.exponential(1.0, 10000)
+ss6 = np.random.uniform(1, 4, 10000)
+ss7 = np.random.normal(1, 0.1, 10000)
+ss8 = np.random.beta(0.44, 1, 10000)
+ss9 = np.random.binomial(10, 0.1, 10000)
+ss10 = np.random.chisquare(4, 10000)
+ss11 = np.random.exponential(1.0, 10000)
+
+ss = np.array([ss1, ss2, ss3, ss4, ss5, ss6, ss7, ss8, ss9, ss10, ss11])
+z = np.sum(ss, axis=0)
+
+# Plot normalised sum
+ss_norm = np.array([(s - np.mean(s)) / np.std(s) for s in ss])
+z_norm = np.sum(ss_norm, axis=0)
+z_norm = (z_norm - np.mean(z_norm)) / np.std(z_norm)
+
+count, bins, ignored = plt.hist(z_norm, 100, normed=True)
+# plt.plot(bins, np.ones_like(bins), linewidth=2, color='r')
+xx = np.linspace(-10, 10, 10000)
+# print(xx)
+gauss = 1 / np.sqrt(2 * np.pi) * np.exp(-(xx) ** 2 / 2)
+# print(gauss)
+
+plt.plot(xx, gauss, &quot;r&quot;)
+plt.xlabel(&quot;X random sample&quot;)
+plt.ylabel(&quot;Y probability density function&quot;)
+plt.title(&quot;Empirical verification of the Central Limit Theorem&quot;)
+plt.show()
+</code></pre>
+
+<pre><code>/Users/Ankivarun/anaconda3/envs/torch37/lib/python3.7/site-packages/ipykernel_launcher.py:28: MatplotlibDeprecationWarning: 
+The 'normed' kwarg was deprecated in Matplotlib 2.1 and will be removed in 3.1. Use 'density' instead.
+</code></pre>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/2-small-scale-fading_files/2-small-scale-fading_2_1.png" alt="png" /></p>
+
+<h2 id="rayleigh-fading">Rayleigh Fading</h2>
+
+<p>Now observe that if $I &gt; 30$ we can assume CLT, hence, $h_I$ and $h_Q$ would be normally distributed.</p>
+
+<p>Thus, the amplitude of $\tilde{y}(t) = \sqrt{h_I^2(t) + h_Q^2(t)}$ follows the Rayleigh distribution.</p>
+
+<p>Meanwhile, if some of the scattering components are much stronger than most of the components, the fading process no longer follows the Rayleigh distribution, rather the  Rician distribution and thus, this fading process is referred to as Rician fading.</p>
+
+<p>The strongest scattering component usually corresponds to the line-of-sight (LOS) component (also referred to as specular components). This is modelled by the Rician distribution. Other than the LOS component, all the other components are non-line-of-sight (NLOS) components (referred to as scattering components), and are modelled by the Rayleigh distribution.</p>
+
+<p>Thus, $y = c + W_1 + W_2j$, with $W_1, W_2$ modelled as iid Gaussians of mean 0, variance $\sigma^2$, $c$ represents the LOS component.</p>
+
+<p>It has been observed that the $y$ is a Rician variable with:</p>
+
+<p><code>$$ f_Y(y) = \frac{y}{\sigma^2} \exp(-\frac{y^2 + c^2}{\sigma^2})J_o(yc/\sigma^2)$$</code></p>
+
+<p>, where $J_o$ is the bessel function of the first kind.</p>
+
+<h2 id="exercise">Exercise</h2>
+
+<p>In the previous section, we modelled Line of Sight (LOS) by Rician and NLOS by Rayleigh. Now weigh LOS by $K [dB]$ in a linear fashion ($\frac{K}{K+1},\frac{1}{K+1}$).</p>
+
+<p>Show that for $K&gt; 15dB$, the mixture looks Gaussian and for $K&lt;-40dB$, it looks like a Rayleigh distribution.</p>
+
+<p>We have some starter code to get you started.</p>
+
+<p>Note: In the language of statistics, we call this property as convergence in distribution. There are also definitions for convergence in probability and almost surely convergence. We shall refer the interested reader to given references for this.</p>
+
+<pre><code class="language-python">from scipy.special import jv
+
+arr = np.linspace(0,10,1000)
+
+# Zeroth order Bessel function
+J_0 = jv(0,arr)
+
+plt.plot(arr,J_0)
+plt.grid()
+plt.xlabel(&quot;$x$&quot;)
+plt.ylabel(&quot;$J_0(x)$&quot;)
+plt.title(&quot;Zeroth order Bessel function&quot;)
+plt.show()
+</code></pre>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/2-small-scale-fading_files/2-small-scale-fading_5_0.png" alt="png" /></p>
+
+<h2 id="references">References</h2>
+
+<ol>
+<li>MIMO OFDM Wireless Communications, Y. Chang and W. Yang, IEEE Press, 2010.</li>
+<li><a href="https://www.statlect.com/asymptotic-theory/convergence-in-probability">Convergence in Probability</a></li>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.jv.html#scipy.special.jv">Scipy Docs: Bessel functions</a></li>
+</ol>
+
+
+		
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+    </script>
+	</div>
+
+	<div class="pagination">
+		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/8-non-linearity/" class="left arrow">&#8592;</a>
+		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/1-large-scale-fading/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			<span>
+			&copy; <time datetime="2019-10-19 16:27:29.695558 &#43;0530 IST m=&#43;0.259404850">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

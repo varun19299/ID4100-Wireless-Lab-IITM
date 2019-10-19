@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/</loc>
+    <lastmod>2019-10-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/</loc>
+    <lastmod>2019-10-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/1-large-scale-fading/</loc>
+    <lastmod>2019-10-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/2-small-scale-fading/</loc>
+    <lastmod>2019-10-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/8-non-linearity/</loc>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/7-ber-awgn/</loc>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/13-dsp-intro/</loc>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/12-intro-comsys/</loc>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/3-single-carrier/</loc>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/10-iq-imbalance/</loc>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/9-ofdm-channel-est/</loc>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox/</loc>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/4-ofdm-python/</loc>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/5-conv-fft/</loc>
+  </url>
+  
+  <url>
+    <loc>https://varun19299.github.io/wireless-lab-iitm/posts/11-visualising-rf-spectrum/</loc>
+  </url>
+  
+</urlset>

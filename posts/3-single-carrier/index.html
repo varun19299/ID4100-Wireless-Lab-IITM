@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Introduction to Single Carrier Transmission &middot; Wireless Lab IIT-M</title>
+
+		
+  		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/style.css">
+		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/fonts.css">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://varun19299.github.io/wireless-lab-iitm/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Wireless Lab IIT-M" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="https://varun19299.github.io/wireless-lab-iitm/">
+					<h2 class="nav-title">Wireless Lab IIT-M</h2>
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="https://varun19299.github.io/wireless-lab-iitm/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+                
+                <span></span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    
+</div>
+		<h1 class="post-title">Introduction to Single Carrier Transmission</h1>
+<div class="post-line"></div>
+
+		
+
+		
+
+<p>In this post, we shall see an introduction to single carrier transmission. We shall cover its advantages and also encounter its limitations.</p>
+
+<p>Let our signal be $x(t)$, let me transmit through a channel which introduces the transfer function $h(t)$. Let us assume $h(t)$ is band-limited, ie&hellip;, its is finite in Fourier space. See our earlier post on the Fourier transform for more information.</p>
+
+<p>Let $x(t)$ essentially be a bunch of symbols ${a_n}$ that I choose to transmit at intervals $1/T$. We create $x(t)$ from these symbols by using a transmit filter $g(t)$.</p>
+
+<p>ie&hellip;</p>
+
+<p><code>$$x(t)= \sum_{m=-\infty}^{\infty} a_m g(t-mT)$$</code></p>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/transmit.png" alt="transmit" /></p>
+
+<p>We then operate this by the channel ($h(t)$) to get signal $y(t)$.</p>
+
+<p>So,$y(t) = \sum_{m=-\infty}^{\infty} a_m h(t)*g_T(t-mT)$.</p>
+
+<p>Again, on upon receiving, we encounter the receive filter and get:</p>
+
+<p><code>$$y(t) = \sum_{m=-\infty}^{\infty} a_m g_R(t) * h(t)*g_T(t-mT)$$</code></p>
+
+<p>In order to compensate for the channel, let&rsquo;s add an equaliser $h^{-1}(t)$. Finally,</p>
+
+<p><code>$$y(t) = \sum_{m=-\infty}^{\infty} a_m h^{-1}(t) * g_R(t) * h(t)*g_T(t-mT)$$</code></p>
+
+<p>Or,</p>
+
+<p><code>$$y(t) = \sum_{m=-\infty}^{\infty} a_m g_R(t) *g_T(t-mT) = \sum_{m=-\infty}^{\infty} a_m g(t-mT) $$</code></p>
+
+<p>where, $g(t) = g_R * g_T$. In the preceeding section, we have just used the associative property of convolution.</p>
+
+<p>This is conveniently seen as a block diagram.</p>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/single_channel.png" alt="single_channel" /></p>
+
+<p>If we sample $y(t)$ at $t_n = nT$, we get:</p>
+
+<p><code>$$y(t_n) = a_ng(0) + \sum_{m\neq n} a_m g((n-m)T)$$</code>. Here comes our dilemma. Notice that we said $g(t)$ would be finite in Fourier domain, so it is infinite in time domain.</p>
+
+<p>As a result, we cannot guarantee that, $g((n-m)T)= 0 \quad for n \neq m$. This causes the phenomenon of inter symbol interference (ISI).</p>
+
+<h2 id="isi-and-the-nyquist-criterion">ISI and the Nyquist Criterion</h2>
+
+<p>Assume we choose $g(nT) = \delta[n]$, hence, satisfying the previous requirement. This condition in the frequency domain equals,</p>
+
+<p><code>$$\sum_{i=-\infty}^{\infty}G(f-\frac{i}{T})=T$$</code></p>
+
+<p>This is the very well known Nyquist criterion.</p>
+
+<p>One obvious candidate for this is the rectangle pulse, which looks like the graph below and is given by:</p>
+
+<p><code>\begin{align*}
+G_I(f) &amp;= \frac{1}{2W}rect(\frac{f}{2W}) &amp;= \left\{
+\begin{array}{ll}
+      T, \quad |f| \leq \frac{1}{2T}\\
+      0, \quad \text{otherwise}\\
+\end{array} 
+\right.
+\end{align*}</code></p>
+
+<pre><code class="language-python">import numpy as np
+from matplotlib import pyplot as plt
+%matplotlib inline 
+
+Fs = 100    # sampling frequency
+T = 10      # time duration we want to look at
+t = np.arange(-T, T, 1/Fs)  # the corresponding time samples
+
+# define our two functions
+x = lambda t: np.sinc(t) * np.hanning(len(t))
+
+# the resulting time range, when convolving both signals
+
+plt.figure(figsize=(10,4))
+plt.subplot(121) 
+plt.plot(t, x(t))
+plt.xlim(-6,6)
+plt.grid()
+plt.xlabel(&quot;Time&quot;)
+plt.ylabel(&quot;Amplitude&quot;)
+plt.title(&quot;Time domain&quot;)
+plt.legend((&quot;$x(t)$&quot;,))
+
+plt.subplot(122)
+# function to calculate the spectrum of the input signal
+spec = lambda x: abs(np.fft.fftshift(np.fft.fft(x, 4*len(t))))/Fs
+X = spec(x(t))
+f = np.linspace(-Fs/2, Fs/2, len(X))
+plt.plot(f, X)
+plt.xlim(0,3)
+plt.grid()
+plt.legend((&quot;$|X(f)|$&quot;,))
+plt.xlabel(&quot;Normalised frequency&quot;)
+plt.ylabel(&quot;Amplitude&quot;)
+plt.title(&quot;Fourier domain&quot;)
+plt.show()
+</code></pre>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/3-single-carrier_files/3-single-carrier_2_0.png" alt="png" /></p>
+
+<p>Unfortunately, we cannot realise the sinc function in practice due to its non causal nature, and as such resort to the following, called the raised cosine filter:</p>
+
+<p><code>\begin{align*}
+G_{RC}(f) = \left\{
+\begin{array}{ll}
+      T, \quad |f| \leq \frac{1-r}{2T}\\
+      \frac{T}{2} (1 + \cos \frac{\pi T}{r} (|f| -\frac{1-r}{2T})), \quad \frac{1-r}{2T} \leq |f| \leq \frac{1+r}{2T} \\
+      0, \quad \text{otherwise}\\
+\end{array} 
+\right.
+\end{align*}</code></p>
+
+<p>As <strong>exercise 1</strong>, find the inverse fourier transform of the raised cosine filter (<em>Hint: use numpy to plot it first and understand its analytical form. Then proceed backwards</em>)</p>
+
+<p>We controll the filter by its roll-off characteristics, $r$. Notice that as $r$ varies between 0 and 1, we move from an ideal low pass filter to a filter occupying twice the Nyquist bandwidth.</p>
+
+<p>Now, we design for the receive and transmit filters, with the requirement that $G_R(f) = G_T^*(f)$. Thus,</p>
+
+<p><code>\begin{align*}
+G_{R}(f) = \left\{
+\begin{array}{ll}
+      \sqrt{T}, \quad |f| \leq \frac{1-r}{2T}\\
+      \sqrt{\frac{T}{2} (1 + \cos \frac{\pi T}{r} (|f| -\frac{1-r}{2T}))}, \quad \frac{1-r}{2T} \leq |f| \leq \frac{1+r}{2T} \\
+      0, \quad \text{otherwise}\\
+\end{array} 
+\right.
+\end{align*}</code></p>
+
+<p>Notice that $G<em>R(f)$ is <strong>not</strong> Nyquist, but $G</em>{RC}(f)$ is. Is the converse true? That is if a filter satisfies the Nyquist criterion, does its square too? (<strong>exercise 2</strong>)</p>
+
+<h2 id="limitations-for-high-data-rate">Limitations for High Data Rate</h2>
+
+<p>Thus, in order to transmit at rate $R_s$, we need to have a minimum bandwidth of $R_s/2$. Thus, with increasing data rate, we would need greater signal bandwidth.</p>
+
+<p>If we cross the coherence bandwidth (see the earlier post on large scale fading), the equaliser no longer cancels out the channel effect (we incurr multi-path fading). Thus, we end up having ISI due to the multi-path fading.</p>
+
+<p>In order to address this, we could try out adaptive equalisers. But can we do better?</p>
+
+<h2 id="multiple-carrier-transmission">Multiple Carrier Transmission</h2>
+
+<p>So here&rsquo;s the idea, we transmit a wide band signal by splitting it up over mutliple frequency bins, each with channel transfer function $H_k(f)$, and multiple narrow band filters $G_k(f)$. Owing to the non-selectivity of each of these $H_k(f)$&rsquo;s, we can equalise them.</p>
+
+<p>Assuming these subcarriers are kept orthogonal, we will not have any Inter Channel Interference (ICI).</p>
+
+<p>Assume $N$ narrowband subchannels, each with subcarrier frequency $f_k$. In essence, this is a form of Frequency Division Multiple Access (FDMA). The below two figures illustrate the general scheme.</p>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/FDMA_scheme.png" alt="FDMA_scheme" /></p>
+
+<h2 id="ofdm">OFDM</h2>
+
+<p>OFDM is one such FDMA system. Let $l$ denote the symbol interval, and consider the $k$ th frequency. Then we transmit $X_l[k]$ and receive $Y_l[k]$. Take the $N$ point IFFT of <code>${\{X_l[k]\}}_{k=0}^{N-1}$</code>, to get <code>$\{x[n]\}_{n=0}^{N-1}$</code>.</p>
+
+<p>From our previous post connecting FFT to Convolutions, we see that $x[n]$ are samples of the orthogonal signals sent in these $N$ channels.</p>
+
+<p>Assume, we receive $y[n] = x[n] + w[n]$, where $w[n]$ is some white Gaussian noise (WGN, see the contents for a post on what WGNs are). And from <code>$\{y[n]\}_{n=0}^{N-1}$</code>, obtain via FFT <code>$\{Y_l[k]\}_{k=0}^{N-1}$</code>. Typically, we use rectangular pulses (of duration $T$) as subcarriers, thus the OFDM signal can be considered as the sum of the frequency shifted sinc functions (spaced by $1/T$ in the frequency domain as illustrated in the below figure.</p>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/OFDM_1.png" alt="OFDM" /></p>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/OFDM_2.png" alt="OFDM" /></p>
+
+<p>Notice that the first sidelobe is not so small as compared to the main lobe in the spectra, ie&hellip;, we are not dealing with bandlimited signals. This causes non-negligible adjacent channel interference (ACI), requiring guard bands and cyclic prefixes. We shall explain this in detail shortly.</p>
+
+<h2 id="ofdm-basics-modulation-and-demodulation">OFDM Basics: Modulation and Demodulation</h2>
+
+<p>Consider the time-limited complex exponential signals <code>$\exp(2j\pi f_k t)_{k=0}^{N-1}$</code> which represent the different subcarriers at <code>$f_k = k/T_{sym}$</code> in the OFDM signal, where $0 \leq t \leq T_{sym}$. These signals are defined to be orthogonal if the integral of the products for their common (fundamental) period is zero. This is also known as their inner product, ie&hellip;,</p>
+
+<p><code>$$&lt;\exp(2j\pi f_k t), \exp(2j\pi f_i t)&gt; := \frac{1}{T_{sym}}\int_0^{T_{sym}} \exp(2j\pi f_k t) \exp(-2j\pi f_i t dt = \delta_{k,i} $$</code>, where $\delta_{k,i} = 1, k = i, 0$ otherwise is the Kronecker delta function.</p>
+
+<p>An OFDM transmitter first converts seriel bits into parallel ($N$ parallel bits) via a S/P converter. Let $X_l[k]$ denote the $l \in {0,1,&hellip;,}$th transmit symbol at the $k \in {0,1,&hellip;,N-1}$ th subcarrier.</p>
+
+<p>If $T_s$ is the duration of the subcarrier pulse, then the time to transmit the OFDM symbols would be <code>$T_{sym} = NT_s$</code></p>
+
+<p>Let&rsquo;s transmit two different pieces of information $X_1,X_2$ using two different frequencies $f_1,f_2$:</p>
+
+<p><code>$$\begin{align}x(t)&amp;=X_1\exp(j2\pi f_1t) + X_2\exp(j2\pi f_2t)\\y(t)&amp;=h(t)*x(t)=X_1\cdot H(f_1)\cdot\exp(j2\pi f_1t)+X_2\cdot H(f_2)\cdot\exp(j2\pi f_2t).\end{align}$$</code></p>
+
+<p>Even more, let&rsquo;s transmit not only two different pieces of information, but many. For each information, we use a different frequency, and denote the information on frequency $f$ by $X(f)$. Since we can transmit on any frequency, the transmit signal can be written as</p>
+
+<p><code>$$x(t)=\int_{-\infty}^{\infty}X(f)\exp(j2\pi ft)df$$</code></p>
+
+<p>For each frequency $f$, we transmit the information $X(f)$ on the complex exponential $\exp(j2\pi ft)$. You see, this is exactly the <strong>inverse Fourier Transform</strong>.</p>
+
+<p>At the receiver side, the received signal becomes</p>
+
+<p><code>$$y(t)=\int_{-\infty}^{\infty}X(f)H(f)\exp(j2\pi ft) df,$$</code></p>
+
+<p>from which we actually want to obtain the amplitudes of the different frequency components $X(f)H(f)$. What do you do to obtain the information about the frequency components of a signal? Right, you perform Fourier Transform, which leads to</p>
+
+<p><code>$$Y(f)=\mathcal{F}\{y(t)\}=X(f)H(f)$$</code></p>
+
+<p>because $X(f)H(f)$ is the amplitude of the frequency component with frequency $f$.</p>
+
+<p>What&rsquo;s the problem with this approach? Well, the involved signals are infinitely long. So, in order to demodulate the signal, you&rsquo;d need to wait infitinely long. Clearly, that&rsquo;s not a practical solution.</p>
+
+<h3 id="orthogonality-of-time-limited-complex-exponentials">Orthogonality of time-limited complex exponentials</h3>
+
+<p>What, if we do not want to wait infinitely long at the receiver, but only for a time period of length $T$? Hence, at the receiver we perform the Fourier Transform of a time-limited exponential, let&rsquo;s say which ranges from $0$ to $T$. Hence, given a received signal of frequency $f_1$, by $x(t)=\exp(j2\pi f_1 t)$, what would be the result of the Fourier transform of this signal? Let&rsquo;s use Sympy to do the tedious calculation:</p>
+
+<pre><code class="language-python">import sympy as S  
+S.init_printing()
+f1, f2, t, P = S.symbols(&quot;f1 f2 t P&quot;)
+I = S.Integral(S.exp(2*S.I *S.pi*f1*t)*S.exp(-2*S.I*S.pi*f2*t), (t, 0, 1))  # write the integral
+R = S.simplify(I.doit())  # calculate the integral
+display(S.relational.Eq(S.relational.Eq(P(f1,f2), I), R))  # show the result
+</code></pre>
+
+<p><code>$$P{\left (f_{1},f_{2} \right )} = \int_{0}^{1} e^{2 i \pi f_{1} t} e^{- 2 i \pi f_{2} t}\, dt = \begin{cases} 1 &amp; \text{for}\: f_{1} = f_{2} \\- \frac{i e^{- 2 i \pi f_{2}}}{2 \pi \left(f_{1} - f_{2}\right)} \left(e^{2 i \pi f_{1}} - e^{2 i \pi f_{2}}\right) &amp; \text{otherwise} \end{cases}$$</code></p>
+
+<p>The function does not look really nice. One could simplify it, but we dont care at this point. Let&rsquo;s just plot it for different values of $f_1$ and $f_2$ and see what happens:</p>
+
+<pre><code class="language-python">X = np.vectorize(lambda f1, f2: R.evalf(subs=dict(f1=f1,f2=f2)))
+plt.figure(figsize=(6,2))
+for f1 in (1, 2, 3, 4):
+    f2 = np.linspace(0, 5, 100, endpoint=False)
+    plt.plot(f2, abs(X(f1, f2)), label='$f_1=%d$' % f1)
+plt.legend(fontsize=10); plt.grid(True); plt.xlabel('$f_2$'); plt.ylabel('$|P(f_1,f_2)|$');
+plt.title(&quot;Interference from a signal with frequency $f_1$ onto the Fourier transform at frequency $f_2$.&quot;);
+</code></pre>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/3-single-carrier_files/3-single-carrier_8_0.png" alt="png" /></p>
+
+<p>What does this figure show? It tells us, that if we transmit with a frequency of $f_1=1$ (blue curve), the output of the Fourier transform at frequencies $f_2={2,3,4,5,&hellip;}$ becomes $0$. Hence, the signal transmitted at frequency $f_1=1$ does not interfer with a signal that was transmitted at a frequency $f_2={2,3,4,5}$. These results hold for $T=1$. In general, it holds that $P(f_1,f_2)=0$ if $f_1-f_2=n/T$ with $n\in\mathbb{Z}$. (<em>Essentially, what he have derived here is the Fourier transform of a rectangular function of length $T$</em>.)</p>
+
+<p>In conclusion, if we require that our receiver window should only be $T$ seconds long, we can only transmit signals at the frequencies $1/T, 2/T, 3/T, &hellip;$. The signals on these frequencies are called the OFDM subcarriers and this property ensures the orthogonality, i.e. it ensures that adjacent subcarriers do not interfer with each other after the Fourier transform at the receiver.</p>
+
+<h3 id="influence-of-the-wireless-channel">Influence of the wireless channel</h3>
+
+<p>Up to now, everything should be fine, right? We have shown that complex exponentials are orthogonal over a time period $T$, when their frequencies have a difference of $\Delta_f=f_1-f_2=n/T$ with $n\in\mathbb{Z}$. Furthermore, we have stated that complex exponentials are eigenfunctions of the channel, i.e. a transmitted complex exponential remains a complex exponential. So, problem solved?</p>
+
+<p>No, unfortunately not. Only infinitely long complex exponentials are eigenfunctions of the channel. This means, if we transmit a complex exponential of length $T$, the output of the channel will not just be a scaling of the amplitude of this signal:</p>
+
+<pre><code class="language-python">T = 1
+t = np.arange(-1, 2, 1/Fs)
+f1 = 20
+x = np.cos(2*np.pi*f1*t) * (t&gt;=0) * (t&lt;1)
+y = np.convolve(h, x)
+y = y[:len(x)]
+
+plt.subplot(121)
+plt.plot(t, x)
+plt.xlim((-0.1, 1.2)); plt.grid(True); plt.xlabel('$t [s]$'); plt.ylabel('$x(t)$'); plt.ylim((-1.1, 1.35)) # ilü
+plt.annotate(s='',xy=(0,1.1), xytext=(1,1.1), arrowprops=dict(arrowstyle='&lt;-&gt;'))
+plt.text(0.5,1.1,r'Transmit interval $T$',va='bottom', ha='center', fontsize=12);
+plt.title(&quot;Transmitted signal&quot;)
+
+plt.subplot(122)
+plt.plot(t, y)
+plt.xlim((-0.1, 1.2)); plt.grid(True); plt.xlabel('$t [s]$'); plt.ylabel('$y(t)=h(t)*x(t)$'); plt.ylim((-8.5, 8.5))
+plt.annotate(s='',xy=(0,6.7), xytext=(1,6.7), arrowprops=dict(arrowstyle='&lt;-&gt;'))
+plt.text(0.5,6.7,r'Receive interval $T$',va='bottom', ha='center', fontsize=12);
+plt.title(&quot;Received signal after multipath channel&quot;)
+plt.tight_layout()
+</code></pre>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/3-single-carrier_files/3-single-carrier_11_0.png" alt="png" /></p>
+
+<p>Apparently, at the beginning of the received interval, the signal is severely distorted. This would lead to a non-accurate signal reception. Hence, this technique is not applicable in a multpath channel. What can we do?</p>
+
+<p><em>Even though it looks like the signal is also distorted at the end of receive interval, this is not the case: The channel introduces a delay to the harmonic function, shifting the wave slightly to the right, hence the wave won&rsquo;t reach its maximum at $t=1$. This is due to the <a href="http://dspillustrations.com/pages/posts/misc/group-delay-and-phase-delay-example.html">phase delay</a> of the channel.</em></p>
+
+<h3 id="the-necessity-of-the-cyclic-prefix">The Necessity of the Cyclic Prefix</h3>
+
+<p>We know the received signal is the convolution of the channel&rsquo;s impulse response with the transmitted signal and only infinitely long complex exponentials are eigenfunctions of the channel. But, we want to have time-limited complex exponentials at the output of the channel.</p>
+
+<p>Knowing that the channel impulse response has length $L$, we know that the channel output at time $t_0$ does only depend on the channel input at times $t_0-L\leq t\leq t_0$, i.e. the channel does have a limited memory, it can only remember the last $L$ seconds of the input signal. Consequently, the channel does not care, if the input signal is an infinitely long complex exponential or not, it only cares about the last $L$ seconds of the signal. Therefore, we can trick the channel by transmitting a complex exponential of length $T+L$, and the channel will output a perfect complex exponential during the times $L\leq t\leq T+L$:</p>
+
+<pre><code class="language-python">L = 0.1 # the channel length
+x = np.cos(2*np.pi*f1*t) * (t&gt;=-L) * (t&lt;T)
+y = np.convolve(h, x)[:len(x)]
+
+plt.subplot(121)
+plt.plot(t, x)
+plt.xlim((-0.2, 1.2)); plt.grid(True); plt.xlabel('$t [s]$'); plt.ylabel('$x(t)$'); plt.ylim((-1.1, 1.35))
+plt.annotate(s='',xy=(-L,1.1), xytext=(1,1.1), arrowprops=dict(arrowstyle='&lt;-&gt;'))
+plt.text(0.5-L/2,1.1,r'Transmit interval $T+L$',va='bottom', ha='center', fontsize=12);
+plt.title(&quot;Transmitted signal&quot;)
+
+plt.subplot(122)
+plt.plot(t, y)
+plt.xlim((-0.2, 1.2)); plt.grid(True); plt.xlabel('$t [s]$'); plt.ylabel('$y(t)=h(t)*x(t)$'); plt.ylim((-8.5, 8.5))
+plt.annotate(s='',xy=(0,6.7), xytext=(1,6.7), arrowprops=dict(arrowstyle='&lt;-&gt;'))
+plt.text(0.5,6.7,r'Receive interval $T$',va='bottom', ha='center', fontsize=12);
+plt.title(&quot;Received signal after multipath channel&quot;)
+plt.tight_layout()
+</code></pre>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/3-single-carrier_files/3-single-carrier_14_0.png" alt="png" /></p>
+
+<p>As we see, now the distortion of the transmitted signal occurs outside of the receiver interval. Within the receiver interval the waves are perfect. Hence, within this interval our orthogonality condition holds and we can detect our data without interference.</p>
+
+<p>You might have already guessed that the extra part at the beginning of the block is called the <em>Cyclic prefix</em>. Some people call it <em>guard interval</em>, which seems more appropriate to our current application: It guards the actual receiver interval such that it contains a perfect harmonic function. Why is it also called <em>Cyclic prefix</em>? We know that the complex exponentials with frequencies $1/T, 2/T, \dots$ are periodic with period $T$. Therefore, the we have $x(t-T)=x(t)$, which shows that the guard interval is actually a copy of the end of the block. Therefore, it&rsquo;s called cyclic prefix (CP), because the CP creates a cyclic block structure by prepneding the end of the block to its beginning.</p>
+
+<h2 id="references">References</h2>
+
+<ol>
+<li>MIMO OFDM Wireless Communications, Y. Chang and W. Yang, IEEE Press, 2010.</li>
+<li><a href="https://www.sympy.org">Sympy Docs</a>.</li>
+<li><a href="https://numpy.org">Numpy Docs</a>.</li>
+</ol>
+
+
+		
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+    </script>
+	</div>
+
+	<div class="pagination">
+		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/10-iq-imbalance/" class="left arrow">&#8592;</a>
+		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/12-intro-comsys/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			<span>
+			&copy; <time datetime="2019-10-19 16:27:29.705569 &#43;0530 IST m=&#43;0.269415925">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Fading: An introduction to large scale fading &middot; Wireless Lab IIT-M</title>
+
+		
+  		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/style.css">
+		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/fonts.css">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://varun19299.github.io/wireless-lab-iitm/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Wireless Lab IIT-M" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="https://varun19299.github.io/wireless-lab-iitm/">
+					<h2 class="nav-title">Wireless Lab IIT-M</h2>
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="https://varun19299.github.io/wireless-lab-iitm/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+                
+                <span></span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    
+    <br> Date:
+    <time datetime="2019-10-14 00:00:00 &#43;0000 UTC">October 14, 2019</time>
+</div>
+		<h1 class="post-title">Fading: An introduction to large scale fading</h1>
+<div class="post-line"></div>
+
+		
+
+		
+
+<p>The performance of wireless communication systems is mainly governed by the wireless channel environment. As opposed to the typically static and predictable characteristics of a wired channel, the wireless channel is rather dynamic and unpredictable, which makes an exact analysis of the wireless communication system often difficult.</p>
+
+<p>Radio propogation whose characteristics we are interested in studying is mainly affected by:</p>
+
+<ul>
+<li><strong>Relfection</strong></li>
+<li><strong>Diffraction</strong></li>
+<li><strong>Scattering</strong></li>
+</ul>
+
+<p>Keeping in mind the range of radio wavelengths (1mm to 100km), we obtain reflection when the obstacle is large (say the earth or a building), diffraction when similar dimensions are encountered and finally scattering when the obstacle is much smaller.</p>
+
+<h2 id="fading">Fading</h2>
+
+<p>It refers to the variation of signal amplitude over time and frequency. In comparison to additive noise, fading is another source of signal degradation that is characterized as a non-additive signal disturbance in the wireless channel. It could be:</p>
+
+<ul>
+<li>multi-path (induced) fading: due to multi-path propogation
+or</li>
+<li>shadow fading: shadowing from obstacles that affect propogation.</li>
+</ul>
+
+<p>Fading is often characterised as:</p>
+
+<ul>
+<li><p><strong>Large scale:</strong> involves average path loss and shadowing. Eg: as a mobile moves through a large distance like a cell.</p></li>
+
+<li><p><strong>Small scale:</strong> involves rapid variation of signal levels due to multi-path interference or time variation.</p></li>
+</ul>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/small_large_fading.png" alt="small scale vs large scale fading" /></p>
+
+<h2 id="link-budget">Link Budget</h2>
+
+<p>Link budget is an important tool in the design of radio communication systems. We essentially plot the percentage of power in the signal versus distance. Accounting for all the gains and losses through the wireless channel to the receiver, it allows for predicting the received signal strength along with the required power margin. Path loss and fading are the two most important factors to consider in link budget.</p>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/link_budget.png" alt="link_budget" /></p>
+
+<p>Notice that the mean path loss is deterministic, while the shadowing and small scale fading are stochastic. Due to this randomness, we prefer to have a margin for error during design, typically around 1 to 2 %.</p>
+
+<p>The next section deals with how to model large scale fading for link budget design.</p>
+
+<h2 id="general-path-loss-model">General Path Loss Model</h2>
+
+<p>The free-space propagation model is used for predicting the received signal strength in the line- of-sight (LOS) environment where there is no obstacle between the transmitter and receiver. It is often adopted for the satellite communication systems.</p>
+
+<p>Notation:</p>
+
+<ul>
+<li>$d$: distance between the transmitter and receiver (in meters).</li>
+<li>$G_t$: transmit gain;  $G_r$: receive gain</li>
+<li>$\lambda$: wavelength</li>
+<li>$P_t$: transmission power</li>
+<li>$L$: system loss factor, which is independent of propagation environment. The system loss factor represents overall attenuation or loss in the actual system hardware, including transmission line, filter, and antennas. Typically $L&gt; 1$, with $L=1$ as ideal.</li>
+</ul>
+
+<p>We construct a simple model as:</p>
+
+<p><code>$$P_r(d) = \frac{P_t G_tG_r\lambda^2}{(4\pi)^2d^2L}$$</code></p>
+
+<p>with this, we can obtain free-space path loss, $PL_F(d)$ (with $L=1$), in decibels:</p>
+
+<p><code>$$PL_F(d) = 10 \log (P_t/P_r) = -10 \log (\frac{G_tG_r\lambda^2}{(4\pi)^2d^2})$$</code></p>
+
+<p>Excluding antenna gains, we get:</p>
+
+<p><code>$$PL_F(d) = 10\log(P_t/P_r) = -20 \log (\frac{\lambda}{4 \pi d})$$</code></p>
+
+<p>Let us plot the free space model.</p>
+
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = [10, 10]
+%matplotlib inline 
+
+def PL_free(d: float, fc: float = 1500e6, Gt: float = 1, Gr: float = 1):
+    &quot;&quot;&quot;
+    Free Space path loss model
+    :fc : Carrier frequency
+    :d : Distance between Tx and Rx (in m)
+    :Gt/ Gr : antenna gains
+
+    Out: PL: pathloss (dB)
+    &quot;&quot;&quot;
+    lam = 3e8 / fc
+    PL = (lam * np.sqrt(Gr * Gt)) / (4 * np.pi * d)
+    return -20 * np.log10(PL)
+
+
+d = np.linspace(1, 10 ** 3, num=10000)
+GtGr_ll = [(1, 1), (1, 0.5), (0.5, 0.5)]
+
+for GtGr in GtGr_ll:
+    Gt, Gr = GtGr
+    plt.semilogx(d, PL_free(d,Gt=Gt,Gr=Gr))
+
+legend = [f&quot;Gt {GtGr[0]} Gr {GtGr[1]}&quot; for GtGr in GtGr_ll]
+
+plt.xlabel(&quot;Distance [m]&quot;)
+plt.ylabel(&quot;Path Loss [dB]&quot;)
+plt.legend(legend)
+plt.grid()
+plt.show()    
+</code></pre>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/1-large-scale-fading_files/1-large-scale-fading_3_0.png" alt="png" /></p>
+
+<h2 id="log-distance-path-loss-model">Log distance path loss model</h2>
+
+<p>We modify the previous free space model by adding an exponent term $n$ that varies with environment. In effect, we get:</p>
+
+<p><code>$$PL_{LD}(d) = PL_F(d_0) + 10n \log (\frac{d}{d_0})$$</code> , where $d_0$ is a reference distance at which or closer to the path loss inherits the characteristics of free-space loss. Essentially, we model the environment by free space ($n=2$) upto $d_0$, and then by the exponent $n$. We have $n$ typically between 2 and 6. Table 1 below (<em>source: Rappaport and Theodore et al., 2002</em>) contains path loss exponents for several environments typically encountered.</p>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/path_exp_table.png" alt="path_loss_exponent_table" /></p>
+
+<p>One typically sets $d_0$ depending on the task at hand.</p>
+
+<h2 id="okumara-hata-model">Okumara-Hata Model</h2>
+
+<p>This is a hand engineered model commonly adopted for path loss in an urban area. This particular model mainly covers the typical mobile communication system characteristics with a frequency band of 500–1500 MHz, cell radius of 1–100 km, and an antenna height of 30 m to 1000 m.</p>
+
+<p>The path loss at distance $d$ in the Okumura model is given as:</p>
+
+<p><code>$$ PL_{OK}(d) [dB] = PL_F + A_{MU}(f,d) - G_{R_x} - G_{T_x} + G_{area} $$</code>, where:</p>
+
+<ul>
+<li>$ A_{MU}(f,d)$ is the medium attenuation factor at a frequency $f$, distance $d$.</li>
+<li>G_{area} is the gain for propogation in a specific area.</li>
+<li>G_{R<em>x} and G</em>{T_x} are a function of antenna height, assuming other factors like antenna pattern don&rsquo;t matter.</li>
+</ul>
+
+<p>Okumura empirically obtained graphs for $A<em>{MU},G</em>{area}$ from actual measurements. This model was exntended to suburban and open areas as the Hata model, viz &hellip;</p>
+
+<ul>
+<li><strong>Urban:</strong></li>
+</ul>
+
+<p><code>$$ PL_{Hata,U}(d) [dB] = 69.55 + 26.16 \log f_c- 13.82 \log h_{T_x} - C_{R_x} + (44.9 - 6.55\log h_{T_x})\log d$$</code></p>
+
+<ul>
+<li><strong>Sub-urban:</strong></li>
+</ul>
+
+<p><code>$$PL_{Hata,SU}(d) [dB] = PL_{Hata,U} - 2 (\log \frac{f_c}{28})^2 -5.4(d)$$</code></p>
+
+<ul>
+<li><strong>Rural or Open:</strong></li>
+</ul>
+
+<p><code>$$PL_{Hata,R}(d) [dB] = PL_{Hata,U} - 4.78 (\log f_c)^2 + 18.33 \log f_c - 40.97(d)$$</code></p>
+
+<p>with, $C_{R_x}$ being the correlation coefficient of the receive antenna, which depends on the size of
+coverage.</p>
+
+<p>For small to medium coverage, $C_{R_x}$ is given by:</p>
+
+<p><code>$$C_{R_x} = 0.8 + (1.1 \log f_c - 0.7)h_{R_x} -1.56\log f_c$$</code></p>
+
+<p>And for large coverage by:</p>
+
+<p><code>\begin{align*}
+C_{R_x}= \left\{
+\begin{array}{ll}
+      8.29 (\log (1.54 h_{R_x}))^2 - 1.1  &amp; 150 MHz\leq f_c \leq 200 MHz \\
+      3.2 (\log (11.75 h_{R_x}))^2 - 4.97 &amp; 200MHz\leq f_c\leq 1500 MHz\\
+\end{array} 
+\right.
+\end{align*}</code></p>
+
+<p>We plot the <em>Hata Model</em> below. Notice that path loss is significantly higher for urban as compared to suburban or rural (open) regions, simply due to the dense obstructions observed in urban areas.</p>
+
+<pre><code class="language-python">def PL_Hata(
+    d: float, fc: float = 1500e6, hrx: float = 2, htx: float = 30, env: str = &quot;Urban&quot;
+):
+    &quot;&quot;&quot;
+    Hata path loss model, for large scale coverage
+    :fc : Carrier frequency
+    :d : Distance between Tx and Rx (in m)
+    :hrx: height of receiving antenna
+    :htx : height of transmitting antenna
+    :env: Environment
+
+    Out: PL: pathloss (dB)
+    &quot;&quot;&quot;
+    assert env in [&quot;Urban&quot;, &quot;Suburban&quot;, &quot;Rural&quot;], f&quot;Environment {env} not defined.&quot;
+    fc /= 1e6
+
+    # Low
+    if (fc &gt;= 150) and (fc &lt;= 200):
+        C_rx = 8.29 * (np.log10(1.54 * hrx)) ** 2 - 1.1
+    elif fc &gt;= 200:
+        C_rx = 3.2 * (np.log10(11.75 * hrx)) ** 2 - 4.97
+    else:
+        C_rx = 0.8 + (1.1 * np.log10(fc) - 0.7) * hrx - 1.56 * np.log10(fc)
+
+    PL = (
+        69.55
+        + 26.16 * np.log10(fc)
+        - 13.82 * np.log10(htx)
+        - C_rx
+        + (44.9 - 6.55 * np.log10(htx)) * np.log10(d /1000)
+    )
+
+    if env == &quot;Suburban&quot;:
+        PL -= 2 * ((np.log10(fc / 28)) ** 2) - 5.4
+    elif env == &quot;Rural&quot;:
+        PL += (18.33 - 4.78 * np.log10(fc)) * np.log10(fc) - 40.97
+    return PL
+
+
+d = np.linspace(10, 10 ** 5, num=10000)
+
+# environments
+legend = [&quot;Urban&quot;,&quot;Suburban&quot;,&quot;Rural&quot;]
+
+for env in legend:
+    plt.semilogx(d, PL_Hata(d,env=env))
+
+plt.xlabel(&quot;Distance [m]&quot;)
+plt.ylabel(&quot;Path Loss [dB]&quot;)
+plt.title(&quot;Hata PathLoss model&quot;)
+plt.legend(legend)
+plt.grid()
+plt.show()   
+</code></pre>
+
+<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/1-large-scale-fading_files/1-large-scale-fading_6_0.png" alt="png" /></p>
+
+<h2 id="exercises">Exercises</h2>
+
+<h3 id="question-1">Question 1</h3>
+
+<p>In a similar manner to figure 1, plot the log distance and log normal plots for $f_c = 1500 MHz$, distance varying from 1m to 1km. Take values for $n$ from Table 1. Assume $\sigma=3, d_0= 100m$.</p>
+
+<p>Compare for $G_t, G_r = (1,1),(1,0.5), (0.5, 0.5)$.</p>
+
+<h3 id="question-2">Question 2</h3>
+
+<p>We introduce the IEEE 802.16dA model, which accounts for macro cells in sub-urban regions. It is modelled after and is appropriate for hilly terrain with moderate-to-heavy tree densities.</p>
+
+<p>In this model:</p>
+
+<p><code>$$PL_{802.16A}(d) [dB] = PL_F(d_0) + 10\gamma \log_{10} (\frac{d}{d_0}) + C_f + C_{R_x} \quad \text{for } d&gt;d_0$$</code></p>
+
+<p>Where:</p>
+
+<ul>
+<li>$\gamma = 4.6 - 4*h_{T<em>x} + 3.6/h</em>{T_x}$</li>
+<li>$d_0=100m$</li>
+<li>$h_{T_x}$ is the transmitting antenna height</li>
+<li>$C_f = 6 \log_10 (\frac{f_c}{2000})$: the correlation coefficient for carrier frequency</li>
+<li>$C_{R_x} = -10.8 \log<em>10 (\frac{h</em>{R_x}}{2})$: the correlation coefficient for the receive antenna</li>
+</ul>
+
+<p>Plot the path loss for this model. Notice that it is discontinuous. Propose a method to smoothen it by derving a new reference distance. (<em>Hint: Set equate the free space loss to the path loss at the reference distance</em>)</p>
+
+<h2 id="references">References</h2>
+
+<ol>
+<li>MIMO OFDM Wireless Communications, Y. Chang and W. Yang, IEEE Press, 2010.</li>
+<li><a href="https://numpy.org">Numpy Docs</a>.</li>
+<li><a href="https://matplotlib.org">Matplotlib Docs</a>.</li>
+</ol>
+
+
+		
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+    </script>
+	</div>
+
+	<div class="pagination">
+		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/2-small-scale-fading/" class="left arrow">&#8592;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			<span>
+			&copy; <time datetime="2019-10-19 16:27:29.695448 &#43;0530 IST m=&#43;0.259295224">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

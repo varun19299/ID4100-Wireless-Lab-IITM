@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Discrete Time Signal Processing: A Primer &middot; Wireless Lab IIT-M</title>
+
+		
+  		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/style.css">
+		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/fonts.css">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://varun19299.github.io/wireless-lab-iitm/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Wireless Lab IIT-M" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="https://varun19299.github.io/wireless-lab-iitm/">
+					<h2 class="nav-title">Wireless Lab IIT-M</h2>
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="https://varun19299.github.io/wireless-lab-iitm/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+                
+                <span></span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    
+</div>
+		<h1 class="post-title">Discrete Time Signal Processing: A Primer</h1>
+<div class="post-line"></div>
+
+		
+
+		
+
+<p>Discrete time signals are represented as a sequence of numbers. Say $x$ represents a sequence of numbers, then we may use $x[n]$ to denote the $n^{th}$ element in the sequence $x$. Here, $n$ is an integer. In practical terms, this representation could arise from periodic sampling of a continuous time signal. Each number in the sequence corresponds to a sample obtained at a sampling interval.</p>
+
+<p>A visualisation of a discrete time signal $x[n]$ is illustrated below.</p>
+
+<pre><code class="language-python">%matplotlib inline 
+import numpy as np
+import matplotlib.pyplot as plt
+
+t = np.arange(0,0.2,0.01); # Sampling time instants
+x = np.sin(2*np.pi*10*t);
+
+plt.stem(x)
+plt.xlabel('Sample Index - n')
+plt.ylabel('Sample Value - x[n]')
+
+plt.show()
+</code></pre>
+
+<p><img src="13-dsp-intro_files/13-dsp-intro_2_0.png" alt="png" /></p>
+
+<p>The above example shows a discrete time sine signal of 20 samples. This could be interpreted as samples of a continuous time sine signal at every $0.01$ seconds.</p>
+
+<p>Most of the concepts that apply to continous time signals intuitively extend to discrete time signals. The reader is urged to draw analogies to aid in understanding. There are however, major differences as well. For example, one can delay a discrete time signal only by an integer number of samples. Another example is the fact that a discrete time periodic signal mandates that the time period be an integer multiple of the sampling time.</p>
+
+<h2 id="discrete-time-systems">Discrete Time Systems</h2>
+
+<p>A discrete time system is an entity that takes in a discrete time sequence as an input, and gives out a discrete time sequence as an output. Such a system may be thought of as an operator or a transformation. We&rsquo;ll denote the output of such a system using $y[n]$ and the input using $x[n]$. As with continuous time systems, some types of discrete time systems are:</p>
+
+<ol>
+<li><strong>Memoryless Systems</strong>: Output $y[n]$ depends only on the input $x[n]$ for any n.</li>
+<li><strong>Linear Systems</strong>: Have the additivity and homogeneity properties. In simple terms, they are defined by the principle of superposition</li>
+
+<li><p><strong>Time Invariant Systems</strong>: A system in which a shift in the input sequence causes a corresponding identical shift in the output sequence.</p>
+
+<pre><code class="language-python"># Example: The accumulator as a Time Invariant System
+</code></pre>
+
+<pre><code class="language-python"># Example: Linear/NonLinear Systems
+</code></pre></li>
+</ol>
+
+<p>Causality and Stability are two important aspects of a discrete time system as well.</p>
+
+<ol>
+<li><strong>Causality</strong>: A system is considered causal if its output $y[n_1]$ at sample instant $n_1$ depends only on $x[n]$ where $n \le n_1$. Such systems are non-anticipative (they can&rsquo;t predict the future).</li>
+<li><strong>Stability</strong>: A common criteria for stability is the BIBO (Bounded Input Bounded Output) stability criteria. If the magnitude of input $x[n]$ never goes unbounded, then the magnitude of a BIBO stable system&rsquo;s output $y[n]$ is also never unbounded.</li>
+</ol>
+
+<h3 id="linear-time-invariant-systems">Linear Time Invariant Systems</h3>
+
+<p>Linear Time Invariant (LTI) Systems are an important class of systems in signal processing. The property of linearity and time invariance leads to some convenient properties and representations for such systems. We will now go through some of the basic concepts in LTI systems.</p>
+
+<h4 id="impulse-response">Impulse Response</h4>
+
+<p>The impulse response $h[n]$ of an LTI system is defined as the output of the system when the input is an impulse $\delta[n]$.</p>
+
+<h4 id="convolution">Convolution</h4>
+
+<p>The output $y[n]$ of an LTI system for any arbitrary input $x[n]$ can be written as:</p>
+
+<p><code>$y[n]=\sum _{ k=-\infty  }^{ \infty  }{ x[k]h[n-k] } $</code></p>
+
+<p>The above expression is referred to as the convolution sum and is represented by the operator notation:</p>
+
+<p><code>$y[n]=x[n]\ast h[n]$</code></p>
+
+<pre><code class="language-python"># Example: Convolution
+# The reader may also look up the following functions and learn their use in python:
+# 1. numpy.array()
+# 2. numpy.convolve()
+# 3. matplotlib.pyplot.subplot()
+# 4. matplotlib.pyplot.figure()
+
+x = np.array([1.,-3.,3.,0.,2.,-1.,0.])
+h = np.array([0.,3.,2.,1.,0.,0.])
+
+y = np.convolve(x,h)
+
+fig=plt.figure(figsize=(18, 10), dpi= 80, facecolor='w', edgecolor='k')
+
+plt.subplot(2,2,1)
+plt.stem(x)
+plt.xlabel('Sample Index - n')
+plt.ylabel('Sample Value - x[n]')
+plt.ylim([-10,10])
+plt.xlim([-1,7])
+
+plt.subplot(2,2,2)
+plt.stem(h,'c')
+plt.xlabel('Sample Index - n')
+plt.ylabel('Sample Value - h[n]')
+plt.ylim([-10,10])
+plt.xlim([-1,7])
+
+plt.subplot(2,1,2)
+plt.stem(y,'g')
+plt.xlabel('Sample Index - n')
+plt.ylabel('Sample Value - y[n]')
+plt.ylim([-10,10])
+plt.xlim([-1,12])
+
+plt.show()
+</code></pre>
+
+<h4 id="properties-of-lti-systems">Properties of LTI Systems</h4>
+
+<p>Many properties of LTI systems directly arise from the convolution sum expression itself.</p>
+
+<p>Convolution is commutative:
+$y[n]=x[n]\ast h[n]=h[n]\ast x[n]$</p>
+
+<p>Convolution distributes over addition:
+$x[n]\ast (h_1[n]+h_2[n])=x[n]\ast h_1[n]+x[n]\ast h_2[n]$</p>
+
+<p>Convolution is associative:
+$(x[n]\ast h<em>{ 1 }[n])\ast h</em>{ 2 }[n]=x[n]\ast (h<em>{ 1 }[n]\ast h</em>{ 2 }[n])$</p>
+
+<pre><code class="language-python"># Example: Parallel and Cascade combinations. Equivalent systems
+</code></pre>
+
+<h3 id="frequency-domain-representation-of-discrete-time-signals-and-systems">Frequency-Domain Representation of Discrete Time Signals and Systems</h3>
+
+<p>It can be shown that ${ e }^{ j\omega n }$ is an eigenfuntion of an LTI system. The corresponding eigenvalue is represented as $H({ e }^{ j\omega n })$ and is called the frequency response of the system.</p>
+
+<p>For input <code>$x[n] = { e }^{ j\omega n }$</code>, the corresponding output of an LTE system with impulse response $h[n]$ is easily shown to be:</p>
+
+<p><code>$$
+\begin{align}
+y[n] =H(e^{ j\omega  })e^{ j\omega n }
+\end{align}
+$$</code></p>
+
+<pre><code class="language-python"># Example: Frequency response of a Moving Average system (or some other simple example)
+</code></pre>
+
+<h3 id="frequency-domain-representation-of-discrete-time-signals-and-systems-1">Frequency-Domain Representation of Discrete Time Signals and Systems</h3>
+
+<p>Many sequences can be represented by their Fourier Integral:
+<code>$x[n]=\frac { 1 }{ 2\pi  } \int _{ -\pi  }^{ \pi  }{ X(e^{ j\omega  }) } e^{ j\omega n }d\omega$</code></p>
+
+<p>Where: <code>$X(e^{ j\omega  })= \sum _{ n=-\infty  }^{ \infty  }{ x[n] } e^{ -j\omega n }$</code></p>
+
+<p>The above two equations together are the Fourier representation for the sequence. The former of the above is the <em>inverse Fourier transform</em>. The latter equations is the <em>Fourier transform</em> is used to compute <code>$H(e^{ j\omega  })$</code> from the sequence $x[n]$.</p>
+
+<pre><code class="language-python"># Example: computing the Fourier Transform as a summation
+</code></pre>
+
+<h4 id="symmetry-properties-of-the-fourier-transform">Symmetry Properties of the Fourier Transform</h4>
+
+<p>%TODO Put Image with properties Here</p>
+
+<pre><code class="language-python"># Example of conjugate symmetry and conjugate anti-symmetry
+</code></pre>
+
+<h4 id="fourier-transform-theorems">Fourier Transform Theorems</h4>
+
+<p>Added to the symmetry properties, there are a variety of theorems which ease the manipulation of Fourier Transforms for various applications. They are: %TODO put image with theorems here</p>
+
+<pre><code class="language-python"># Example of Parseval's Theorem
+</code></pre>
+
+<h2 id="references">References</h2>
+
+<ol>
+<li>Oppenheim, Schafer: <em>Discrete Time Signal Processing</em> Third Edition</li>
+</ol>
+
+
+		
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+    </script>
+	</div>
+
+	<div class="pagination">
+		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/12-intro-comsys/" class="left arrow">&#8592;</a>
+		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/7-ber-awgn/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			<span>
+			&copy; <time datetime="2019-10-19 16:27:29.704486 &#43;0530 IST m=&#43;0.268332353">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>
