@@ -1,7 +1,7 @@
 # README
 
-[Website](https://varun19299.github.io/wireless-lab-iitm/)
-[Notebooks](https://github.com/varun19299/wireless-lab-iitm/tree/notebooks)
+[Website](https://varun19299.github.io/wireless-lab-iitm/) | 
+[Notebooks](https://github.com/varun19299/wireless-lab-iitm/tree/notebooks) |
 [Hugo Source Code](https://github.com/varun19299/wireless-lab-iitm/tree/hugo)
 
 Welcome to the github page of the Wireless Learning Blog, IIT Madras. This is an ongoing project to make self-learning content in wireless communication and signal processing more accessible to students. Feel free to go through and use the material below. Do get in touch with us or fill the form here; if you have any feedback!
