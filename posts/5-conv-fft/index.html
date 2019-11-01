@@ -89,14 +89,16 @@
         "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
         "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
         "url" : "https:\/\/varun19299.github.io\/wireless-lab-iitm\/posts\/5-conv-fft\/",
-        "wordCount" : "1719",
+        "wordCount" : "1736",
         "keywords" : [ "Blog" ]
     }
     </script>
 
 		
 
-<p><em>Convolution in the spatial domain equals multiplication in the Fourier domain</em>.</p>
+<blockquote>
+<p>Convolution in the spatial domain equals multiplication in the Fourier domain.</p>
+</blockquote>
 
 <p>By the end of this post, we hope to aquaint the reader with the reason and implication for this statement. We will start by considering the continuous domain, where this is easiest to show.</p>
 
@@ -106,7 +108,7 @@
 
 <p><code>$$y(t) = x(t) * h(t)$$</code></p>
 
-<p>Now, the Fourier transform guarantees us for any Lesbegue integrable function (an intuitive understanding is a signal of finite power), we have a representation via an integral of complex exponentials. Check out this excellant <a href="https://www.youtube.com/watch?v=spUNpyF58BY">link</a> , courtesy of <em>3Blue1Brown</em> if you would like a more grounded understanding of the Fourier transform before proceeding with the rest of this post.</p>
+<p>Now, the Fourier transform guarantees us for any Lesbegue integrable function (an intuitive understanding is a signal of finite power), we have a representation via an integral of complex exponentials. Check out this excellant <a href="https://www.youtube.com/watch?v=spUNpyF58BY">link</a>, courtesy of <em>3Blue1Brown</em> if you would like a more grounded understanding of the Fourier transform before proceeding with the rest of this post.</p>
 
 <p>Essentially:</p>
 
@@ -128,6 +130,10 @@ y(t) &amp;= \int x(\tau) h(t - \tau) d\tau \quad \text{By defn of convolution} \
 \end{align}</code></p>
 
 <p>And that&rsquo;s it. You&rsquo;ve successfully shown the above statement. Now before we complicate matters more, let&rsquo;s visit an example.</p>
+
+<h3 id="simulating-in-python">Simulating in Python</h3>
+
+<p>Let&rsquo;s try a simple example in python to get a feel for the above equation.</p>
 
 <p>In order to deal with a continuous signal, we sample it discretely at a sampling frequency of $f_s$. Let&rsquo;s implement the definition of convolution, ie&hellip;, flip, shift and integrate.</p>
 
@@ -434,7 +440,7 @@ X_k &amp;= \sum_{n=0}^{N-1}x_n \exp(-2j\pi nk/N)\\
 
         		<footer>
 			<span>
-			&copy; <time datetime="2019-11-01 13:14:52.711846 &#43;0530 IST m=&#43;0.127772582">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			&copy; <time datetime="2019-11-01 13:56:09.306527 &#43;0530 IST m=&#43;0.481379462">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
 			</span>
 		</footer>
 
