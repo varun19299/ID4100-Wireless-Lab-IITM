@@ -89,7 +89,7 @@
         "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
         "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
         "url" : "https:\/\/varun19299.github.io\/wireless-lab-iitm\/posts\/5-conv-fft\/",
-        "wordCount" : "1736",
+        "wordCount" : "1741",
         "keywords" : [ "Blog" ]
     }
     </script>
@@ -185,6 +185,8 @@ plt.show()
 <p>In the above example, we have convolved an exponential impulse $x(t)$ with a sinc-squared function $y(t)$.</p>
 
 <p>The result of the convolution $z(t)$ is shown in the red curve. On the left-hand side, we can look at the time domain. In the diagram on the right side, the spectrum of all signals is shown. We see that the spectrum of the exponential impulse is very wide in frequency domain (this is clear, since we have the abrupt jump at $t=0$ in the time domain). On the other side, the sinc-squared function corresponds to a triangle in the frequency domain with $|Y(f)|=0,|f|≥1$. Eventually, the red curve is the product of the green and blue curves: For $f=0$, it starts at $|Z(f)|_{f=0}=1$ and decays with increasing $f$. At $f=1$, where the green triangle has decayed to zero, also the red curve decayed to zero.</p>
+
+<h3 id="gaussian-bell-curves">Gaussian Bell Curves</h3>
 
 <p>Let us now look at another example: We convolve a Gaussian bell function with an ideal lowpass of different cutoff frequencies. Since the ideal lowpass has an infinite time domain response which decays rather slow, we add a Hanning window to the function such that the resulting spectra will look more smooth.</p>
 
@@ -330,6 +332,8 @@ H(f) &amp;= \sum_{n=-\infty}^{\infty} h[n] \exp(-j2\pi fn) \quad \text{Fourier T
 \tilde{H}[k] &amp;= \sum_{n=0}^{N-1} h[n] \exp(-j2\pi kn/N) \quad \text{Discrete Fourier Transform}
 \end{align}</code></p>
 
+<h3 id="circular-convolution">Circular Convolution</h3>
+
 <p>Convolving two such repeated signals is called <strong>cirucular convolution</strong>. This is what causes the initial distortion. If the signal cannot be contained within $N$, then the next cycle&rsquo;s sum slips into the result. As <strong>exercise 4</strong>, show that the DFT equals circular convolution.</p>
 
 <p>So what&rsquo;s the easy solution? Just pad zeros!</p>
@@ -440,7 +444,7 @@ X_k &amp;= \sum_{n=0}^{N-1}x_n \exp(-2j\pi nk/N)\\
 
         		<footer>
 			<span>
-			&copy; <time datetime="2019-11-01 13:56:09.306527 &#43;0530 IST m=&#43;0.481379462">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			&copy; <time datetime="2019-11-01 14:30:21.99959 &#43;0530 IST m=&#43;0.105842303">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
 			</span>
 		</footer>
 
