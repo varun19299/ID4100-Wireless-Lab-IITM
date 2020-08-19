@@ -2,129 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wireless Lab IIT-M</title>
-    <link>https://varun19299.github.io/wireless-lab-iitm/posts/</link>
+    <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/</link>
     <description>Recent content on Wireless Lab IIT-M</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 16 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://varun19299.github.io/wireless-lab-iitm/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Fading: An introduction to large scale fading</title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/1-large-scale-fading/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/1-large-scale-fading/</link>
       <pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/1-large-scale-fading/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/1-large-scale-fading/</guid>
       <description>Large scale fading and its implications.</description>
     </item>
     
     <item>
       <title>Small Scale Fading</title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/2-small-scale-fading/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/2-small-scale-fading/</link>
       <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/2-small-scale-fading/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/2-small-scale-fading/</guid>
       <description>Small scale fading, and modelling Line of Sight (LOS) and Non-Line of Sight (NLOS) fading.</description>
     </item>
     
     <item>
       <title>Amplifier Non Linearity</title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/8-non-linearity/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/8-non-linearity/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/8-non-linearity/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/8-non-linearity/</guid>
       <description>In this post, we look at Power Amplifiers (PAs) which are used to boost the power of the transmit signal at the output of the upconversion. We concern ourselves with the various effects that can happen due to non-linearity of PAs.</description>
     </item>
     
     <item>
       <title>Bit Error Rate in an AWGN Channel </title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/7-ber-awgn/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/7-ber-awgn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/7-ber-awgn/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/7-ber-awgn/</guid>
       <description>In all digital modulation schemes, the bit error rate (BER) is an important metric. The BER is a direct measure of the possible data throughput under the given circumstances. That is, the smaller the BER, the better. In this post, we look at the effect of an additive white gaussian noise (AWGN) channel on the BER of some common modulation schemes.</description>
     </item>
     
     <item>
       <title>Discrete Time Signal Processing: A Primer</title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/13-dsp-intro/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/13-dsp-intro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/13-dsp-intro/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/13-dsp-intro/</guid>
       <description>(Under construction) Discrete signals are how computers handle approximations of continuous variants. In this post, we consider their representation, taxonomy and processing.</description>
     </item>
     
     <item>
       <title>Introduction to Communication Systems</title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/12-intro-comsys/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/12-intro-comsys/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/12-intro-comsys/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/12-intro-comsys/</guid>
       <description>(Under construction) A gentle introduction to the basic concepts of communication systems.</description>
     </item>
     
     <item>
       <title>Introduction to Single Carrier Transmission</title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/3-single-carrier/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/3-single-carrier/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/3-single-carrier/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/3-single-carrier/</guid>
       <description>We explore the building blocks of single carrier transmission and encounter its limitations imposed due to the well-known Nyquist criterion.</description>
     </item>
     
     <item>
       <title>IQ Imbalance and Correction</title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/10-iq-imbalance/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/10-iq-imbalance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/10-iq-imbalance/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/10-iq-imbalance/</guid>
       <description>In this post, we consider the task of downconversion from a given RF signal using both its in-phase (I) and quadrature (Q) components. We understand the implications of imbalance between the two components and how the situation is handled in practical systems.</description>
     </item>
     
     <item>
       <title>OFDM Channel Estimation</title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/9-ofdm-channel-est/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/9-ofdm-channel-est/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/9-ofdm-channel-est/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/9-ofdm-channel-est/</guid>
       <description>The goal of this post is to give the reader a clear understanding of a working channel estimation scheme. Therefore, we look at how a simple channel estimation can be performed on a WiFi packet with multiple OFDM symbols and possibly decode the packet.</description>
     </item>
     
     <item>
       <title>OFDM Synchronisation: Schmidl and Cox Technique </title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox/</guid>
       <description>Given some received OFDM signal like the following, how can one know at which point in time the OFDM symbols are located? Or, equivalently, on which signal part the receiver needs to perform the FFT?</description>
     </item>
     
     <item>
       <title>Pythonic Example for OFDM</title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/4-ofdm-python/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/4-ofdm-python/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/4-ofdm-python/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/4-ofdm-python/</guid>
       <description>Orthogonal Frequency Modulation Division (OFDM), is a popular multi carrier transmission system applied to many common wireless systems. Here, we show a simple python example of OFDM.</description>
     </item>
     
     <item>
       <title>The Curious Case of Convolution and FFT</title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/5-conv-fft/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/5-conv-fft/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/5-conv-fft/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/5-conv-fft/</guid>
       <description>Convolution and its duality with multiplication in the Fourier domain forms the backbone of Digital Signal Processing (DSP), as well as wireless communication. Here, we develop that relation, assuming no pre-requisite besides an introductory course on calculus and some Linear Time Invariant (LTI) systems knowledge.</description>
     </item>
     
     <item>
       <title>Visualising RF Spectrum</title>
-      <link>https://varun19299.github.io/wireless-lab-iitm/posts/11-visualising-rf-spectrum/</link>
+      <link>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/11-visualising-rf-spectrum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://varun19299.github.io/wireless-lab-iitm/posts/11-visualising-rf-spectrum/</guid>
+      <guid>https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/11-visualising-rf-spectrum/</guid>
       <description>We consider visualisation of radio frequency (RF) waves in a practical context. We introduce notions of energy spectral density and power spectral density (PSD); and go on to analyse FM spectra in Chennai and a Wifi router.</description>
     </item>
     
