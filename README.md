@@ -1,6 +1,6 @@
 # README
 
-[Website](https://varun19299.github.io/wireless-lab-iitm/) | 
+[Website](https://varun19299.github.io/ID4100-Wireless-Lab-IITM/) | 
 [Notebooks](https://github.com/varun19299/wireless-lab-iitm/tree/notebooks) |
 [Hugo Source Code](https://github.com/varun19299/wireless-lab-iitm/tree/hugo)
 
