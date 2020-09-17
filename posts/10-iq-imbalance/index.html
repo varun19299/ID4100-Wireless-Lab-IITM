@@ -7,12 +7,12 @@
 		<title>IQ Imbalance and Correction &middot; Wireless Lab IIT-M</title>
 
 		
-  		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/style.css">
-		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/fonts.css">
+  		<link rel="stylesheet" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/css/style.css">
+		<link rel="stylesheet" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/css/fonts.css">
 		
-		<link rel="icon" type="image/png" sizes="32x32" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-16x16.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="https://varun19299.github.io/wireless-lab-iitm/images/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/images/apple-touch-icon.png">
 
 		
 		<link href="" rel="alternate" type="application/rss+xml" title="Wireless Lab IIT-M" />
@@ -21,14 +21,14 @@
     <body>
         		<nav class="nav">
 			<div class="nav-container">
-				<a href="https://varun19299.github.io/wireless-lab-iitm/">
+				<a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/">
 					<h2 class="nav-title">Wireless Lab IIT-M</h2>
 				</a>
 				<ul>
     
     
         <li>
-            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+            <a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/">
                 
                 <span>About</span>
                 
@@ -36,7 +36,7 @@
         </li>
     
         <li>
-            <a href="https://varun19299.github.io/wireless-lab-iitm/posts/">
+            <a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/">
                 
                 <span>Posts</span>
                 
@@ -44,7 +44,7 @@
         </li>
     
         <li>
-            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+            <a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/">
                 
                 <span></span>
                 
@@ -73,7 +73,7 @@
         "@type" : "BlogPosting",
         "mainEntityOfPage": {
              "@type": "WebPage",
-             "@id": "https:\/\/varun19299.github.io\/wireless-lab-iitm\/"
+             "@id": "https:\/\/varun19299.github.io\/ID4100-Wireless-Lab-IITM\/"
         },
         "articleSection" : "posts",
         "name" : "IQ Imbalance and Correction",
@@ -88,7 +88,7 @@
         "copyrightYear" : "0001",
         "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
         "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
-        "url" : "https:\/\/varun19299.github.io\/wireless-lab-iitm\/posts\/10-iq-imbalance\/",
+        "url" : "https:\/\/varun19299.github.io\/ID4100-Wireless-Lab-IITM\/posts\/10-iq-imbalance\/",
         "wordCount" : "901",
         "keywords" : [ "Blog" ]
     }
@@ -98,7 +98,7 @@
 
 <p>In quadrature modulation schemes, there are two streams of signals multiplexed into the same RF bandwidth: the in phase component (I) and the quadrature component (Q). Many modern receivers implement a direct downconversion architecture that looks like this:</p>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/ddr.png"/></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/ddr.png"/></p>
 
 <p>A single local oscillator is used to feed two mixers. One of the mixers is fed a signal 90 degrees phase shifted compared to the other, thus performing quadrature downconversion. However, due to different component properties and the environment, the downconversion may not be ideal. There is usually an offset in the phase and amplitude of the two signals that feed into the mixers. This is a serious hindrance in a radio frequency front-end, since such an imbalance causes image interference. If left uncorrected, the image interference will cause an error floor that impedes the performance of the system. This phenomenon is even more pronounced in wide bandwidth mixers as the oscillator/mixer response may vary slightly over the bandwidth of interest.</p>
 
@@ -208,7 +208,7 @@ plt.xlabel('Frequency');
 plt.ylabel('Relative Gain');
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/10-iq-imbalance_files/10-iq-imbalance_3_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/10-iq-imbalance_files/10-iq-imbalance_3_0.png" alt="png" /></p>
 
 <p>In the above plot, there is an added frequency component after downconversion. The signal&rsquo;s &ldquo;image&rdquo; has appeared because of IQ imbalance. Try changing the values of <code>psi</code> and <code>alpha</code> to observe the effects.</p>
 
@@ -221,7 +221,7 @@ plt.scatter(cos_rx,sin_rx);
 plt.legend(['Tx Oscillator','Rx Oscillator']);
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/10-iq-imbalance_files/10-iq-imbalance_5_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/10-iq-imbalance_files/10-iq-imbalance_5_0.png" alt="png" /></p>
 
 <h2 id="exercises">Exercises</h2>
 
@@ -281,8 +281,8 @@ mixer_rx = cos_rx - 1j*sin_rx;
 	</div>
 
 	<div class="pagination">
-		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/9-ofdm-channel-est/" class="left arrow">&#8592;</a>
-		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/3-single-carrier/" class="right arrow">&#8594;</a>
+		<a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/9-ofdm-channel-est/" class="left arrow">&#8592;</a>
+		<a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/3-single-carrier/" class="right arrow">&#8594;</a>
 
 		<a href="#" class="top">Top</a>
 	</div>

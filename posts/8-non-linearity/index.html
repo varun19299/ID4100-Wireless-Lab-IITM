@@ -7,12 +7,12 @@
 		<title>Amplifier Non Linearity &middot; Wireless Lab IIT-M</title>
 
 		
-  		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/style.css">
-		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/fonts.css">
+  		<link rel="stylesheet" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/css/style.css">
+		<link rel="stylesheet" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/css/fonts.css">
 		
-		<link rel="icon" type="image/png" sizes="32x32" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-16x16.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="https://varun19299.github.io/wireless-lab-iitm/images/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/images/apple-touch-icon.png">
 
 		
 		<link href="" rel="alternate" type="application/rss+xml" title="Wireless Lab IIT-M" />
@@ -21,14 +21,14 @@
     <body>
         		<nav class="nav">
 			<div class="nav-container">
-				<a href="https://varun19299.github.io/wireless-lab-iitm/">
+				<a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/">
 					<h2 class="nav-title">Wireless Lab IIT-M</h2>
 				</a>
 				<ul>
     
     
         <li>
-            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+            <a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/">
                 
                 <span>About</span>
                 
@@ -36,7 +36,7 @@
         </li>
     
         <li>
-            <a href="https://varun19299.github.io/wireless-lab-iitm/posts/">
+            <a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/">
                 
                 <span>Posts</span>
                 
@@ -44,7 +44,7 @@
         </li>
     
         <li>
-            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+            <a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/">
                 
                 <span></span>
                 
@@ -73,7 +73,7 @@
         "@type" : "BlogPosting",
         "mainEntityOfPage": {
              "@type": "WebPage",
-             "@id": "https:\/\/varun19299.github.io\/wireless-lab-iitm\/"
+             "@id": "https:\/\/varun19299.github.io\/ID4100-Wireless-Lab-IITM\/"
         },
         "articleSection" : "posts",
         "name" : "Amplifier Non Linearity",
@@ -88,7 +88,7 @@
         "copyrightYear" : "0001",
         "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
         "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
-        "url" : "https:\/\/varun19299.github.io\/wireless-lab-iitm\/posts\/8-non-linearity\/",
+        "url" : "https:\/\/varun19299.github.io\/ID4100-Wireless-Lab-IITM\/posts\/8-non-linearity\/",
         "wordCount" : "2319",
         "keywords" : [ "Blog" ]
     }
@@ -98,10 +98,10 @@
 
 <p>The transmitter/receiver chain in any wireless system has many components These components are arranged in a cascade and perform operations one after another, and hence the term &ldquo;chain&rdquo;. A simplified version of the transmit chain is shown below:</p>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/rf_transmit_chain.png"/></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/rf_transmit_chain.png"/></p>
 
 <p>A simplified version of the receiver chain is shown below:
-<img src="https://varun19299.github.io/wireless-lab-iitm/posts/rf_receive_chain.png"/></p>
+<img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/rf_receive_chain.png"/></p>
 
 <p>In this post, our component of interest are amplifiers. The Power Amplifier (PA) is used to boost the power of the transmit signal at the output of the upconversion. This is how the transmitted signal is raised to the required power level for day-to-day applications. PAs can be found in almost every device, from phones and routers to commercial LTE basestations. While the PAs on phones and routers may be integrated into the PCB itself, the PAs on LTE basestations provide close to 30 dB (1000 times) gain and are separate modules themselves. The Low Noise Amplifier (LNA) is the first block after the antenna in a receive chain. The LNA boosts the power of the received signal while maintaining a very low noise figure. It helps ensure that even weak signals can be reliably processed and detected. One common tradeoff among all amplifiers is between their efficiency (power efficiency) and distortion introduced in the signal. We look at how amplifier induced non-linearity affects the signal and some methods to mitigate this distortion.</p>
 
@@ -135,7 +135,7 @@ def non_linear_transform(x_in,coeff_vec = np.array([1.0,1.0,1.0])):
 
 <p>If we use $x(t) = Acos(\omega t)$ in our mathematical model for non-linearity and then simplify the resulting expression, we get (equations courtesy RF Microelectronics):</p>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/razavi_1.png"/></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/razavi_1.png"/></p>
 
 <p>We see that the output contains signals whose frequency components are integer multiples (&ldquo;harmonics&rdquo;) of the input frequency. The first term in the equation above is a DC component arising from second-order nonlinearity, the second term is called the fundamental harmonic, the third is the second harmonic and the fourth is the third harmonic. In many RF circuits, presence of harmonic distortion is an unimportant indicator of the effect of nonlinearity since higher harmonics are usually heavily suppressed due to the circuits inherent bandwidth. For example, an amplifier of a WiFi chip operates at 2.4 GHz and the second harmonic will be at 4.8 GHz and can be suppressed if the circuit is designed to have a small bandwidth.</p>
 
@@ -166,7 +166,7 @@ plt.ylabel('Magnitude');
 plt.xlabel('Frequency');
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/8-non-linearity_files/8-non-linearity_6_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/8-non-linearity_files/8-non-linearity_6_0.png" alt="png" /></p>
 
 <pre><code class="language-python">coeff_vec = np.array([1.0,1.0,1.0])
 x_1 = x
@@ -185,13 +185,13 @@ plt.ylabel('Magnitude');
 plt.xlabel('Frequency');
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/8-non-linearity_files/8-non-linearity_7_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/8-non-linearity_files/8-non-linearity_7_0.png" alt="png" /></p>
 
 <h3 id="gain-compression">Gain Compression</h3>
 
 <p>In the equation discussed in the previous subsection, the amplitude gain experienced by <code>$Acos(\omega t)$</code>  is <code>${ \alpha  }_{ 1 }A+3{ \alpha  }_{ 3 }{ A }^{ 2 } / 4 $</code>. Let us now look at the signs of <code>$\alpha_1$</code> and <code>$\alpha_3$</code>. If <code>$\alpha_1\alpha_3 &gt; 0$</code>, then the cube term becomes dominant for sufficiently large amplitudes of $x(t)$. This causes a surge in gain as the amplitude of $x$ increases (gain expansion). However, if <code>$\alpha_1\alpha_3 &lt; 0$</code>, then the <code>$\alpha_3x^3$</code> &ldquo;bends&rdquo; the gain characteristic for a sufficiently large $x$. This reduces the gain as input amplitude increases, and is called gain compression. Most RF circuits of interest, including PAs are compressive. (Figure courtesy RF Microelectronics)</p>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/gain_compression.png"/></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/gain_compression.png"/></p>
 
 <p>In the above figure, <code>$A_{in}$</code> and <code>$A_{out}$</code> are the input and output peak-to-peak amplitudes respectively. Notice how the slope of the gain changes for a sufficiently large input amplitude. The value of <code>$A_{in}$</code> for which <code>$A_{out}$</code> is 1 dB below the ideally expected value is called the 1-dB compression point or <code>$P_{1dB}$</code>. Compression effects need to be understood and accounted for in transmitters and receivers.</p>
 
@@ -233,16 +233,16 @@ plt.legend(['Ideal Amplifier','Nonlinear Amplifier'],fontsize='large');
 </code></pre></li>
 </ol>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/8-non-linearity_files/8-non-linearity_10_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/8-non-linearity_files/8-non-linearity_10_0.png" alt="png" /></p>
 
 <h3 id="intermodulation">Intermodulation</h3>
 
 <p>Till now, we considered the input-output relationship of a single signal or a case where a desired signal was accompanied by a large interferer. A related scenario of interest is one where a desired signal is received along with <em>two</em> interferers. In such a scenario, certain effects manifest which don&rsquo;t reveal themselves in a gain compression or harmonic distortion test. To understand how intermodulation occurs, assume that <code>$x(t)={ A }_{ 1 }cos({ \omega  }_{ 1 }t)+{ A }_{ 2 }cos({ \omega  }_{ 2 }t)$</code> in this subsection. We then have (all equations courtesy of RF Microelectronics):
-<img src="https://varun19299.github.io/wireless-lab-iitm/posts/razavi_2.png"/>
+<img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/razavi_2.png"/>
 If we expand the RHS, discard the DC terms, harmonics and components at <code>$\omega_1\pm\omega_2$</code>, we obtain the following &ldquo;intermodulation products&rdquo;:
-<img src="https://varun19299.github.io/wireless-lab-iitm/posts/razavi_3.png"/>
+<img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/razavi_3.png"/>
 and these fundamental harmonics:
-<img src="https://varun19299.github.io/wireless-lab-iitm/posts/razavi_4.png"/>
+<img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/razavi_4.png"/>
 Among the intermodulation products, the third order products at <code>$2\omega_1-\omega_2$ and $2\omega_2-\omega_1$</code> are of special significance, because if <code>$\omega_1$</code> and <code>$\omega_2$</code> are close to each other, then these products appear in the vicinity. Let&rsquo;s look at what that means in practical use cases:</p>
 
 <p>Suppose an antenna (or any receiver) receives a desired signal at <code>$\omega_0$</code> along with strong interferers at  <code>$\omega_1$</code> and <code>$\omega_2$</code>. This combination will directly go into the amplifier (low noise) that sits after the antenna in the receive chain. In case the interferers happen to satisfy the condition <code>$2\omega_1-\omega_2 = \omega_0$</code>, then the intermodulation products will corrupt the desired signal by falling onto the same frequency as the desired sigal.</p>
@@ -279,7 +279,7 @@ plt.ylabel('Magnitude');
 plt.xlabel('Frequency');
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/8-non-linearity_files/8-non-linearity_12_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/8-non-linearity_files/8-non-linearity_12_0.png" alt="png" /></p>
 
 <pre><code class="language-python"># Setting figure dimensions
 fig = plt.figure(figsize=(18, 6), dpi= 80, facecolor='w', edgecolor='k')
@@ -295,7 +295,7 @@ plt.xlabel('Frequency');
 plt.ylim([0.0,0.15]);
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/8-non-linearity_files/8-non-linearity_13_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/8-non-linearity_files/8-non-linearity_13_0.png" alt="png" /></p>
 
 <p>In the above python example, two nearby interferers completely swamp the received signal. Below is a frequency domain transform if a perfectly linear receiver was used, the interferers do not bleed into the desired signal at all.</p>
 
@@ -315,7 +315,7 @@ plt.ylabel('Magnitude');
 plt.xlabel('Frequency');
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/8-non-linearity_files/8-non-linearity_15_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/8-non-linearity_files/8-non-linearity_15_0.png" alt="png" /></p>
 
 <h2 id="linearization-techniques">Linearization Techniques</h2>
 
@@ -326,7 +326,7 @@ plt.xlabel('Frequency');
 <p>This method reduces the effect of nonlinearity by pre-emptively distorting the signal in a manner that the nonlinear system restores the signal to the desired form. In other words, predistorion involves distorting the signal in the exact inverse of how the nonlinear block shall distort it, effectively cancelling the nonlinear distortion. Note that such a technique is employed in the transmitter chain.</p>
 
 <p>A block diagram of digital predistortion (DPD) is illustrated below:
-<img src="https://varun19299.github.io/wireless-lab-iitm/posts/predistortion.png"/></p>
+<img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/predistortion.png"/></p>
 
 <p>Predistortion is not trivial to implement. The nonlinear attributes of the amplifier changes in action due to temperature, process and load impedance (among others) and therefore, predistorion techniques need to track these changes. Added to this, no amount of predistortion can correct for abrupt nonlinear responses that may occur in real life scenarios. That being said, digital predistortion is an effective and widely used technique.</p>
 
@@ -399,7 +399,7 @@ plt.ylabel('Actual Gain at Output',fontsize='large');
 plt.legend(['Ideal Amplifier','Nonlinear Amplifier','Nonlinear Amplifier with DPD'],fontsize='large');
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/8-non-linearity_files/8-non-linearity_19_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/8-non-linearity_files/8-non-linearity_19_0.png" alt="png" /></p>
 
 <p>We can see in the above simulation that DPD has some positive effects. The green line is more closer to the ideal amplifier scenario as compared to the yellow line. This is especially true at higher gains. DPD actually improves the effective $P_{1dB}$. However, note that DPD makes the gain go above ideal values at lower gain settings. This could be attributed to the fact that in our algorithm to compute DPD method, we assumed linear taps and that too only 4. More complex methods of DPD employ adaptive algorithms with linear and nonlinear taps in order to more closely mimic and reverse the effect of amplifier nonlinearity.</p>
 
@@ -454,8 +454,8 @@ plt.legend(['Ideal Amplifier','Nonlinear Amplifier','Nonlinear Amplifier with DP
 	</div>
 
 	<div class="pagination">
-		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/7-ber-awgn/" class="left arrow">&#8592;</a>
-		<a href="https://varun19299.github.io/wireless-lab-iitm/google15de365d80ca40db/" class="right arrow">&#8594;</a>
+		<a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/7-ber-awgn/" class="left arrow">&#8592;</a>
+		<a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/google15de365d80ca40db/" class="right arrow">&#8594;</a>
 
 		<a href="#" class="top">Top</a>
 	</div>

@@ -7,12 +7,12 @@
 		<title>OFDM Synchronisation: Schmidl and Cox Technique  &middot; Wireless Lab IIT-M</title>
 
 		
-  		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/style.css">
-		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/fonts.css">
+  		<link rel="stylesheet" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/css/style.css">
+		<link rel="stylesheet" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/css/fonts.css">
 		
-		<link rel="icon" type="image/png" sizes="32x32" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-16x16.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="https://varun19299.github.io/wireless-lab-iitm/images/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/images/apple-touch-icon.png">
 
 		
 		<link href="" rel="alternate" type="application/rss+xml" title="Wireless Lab IIT-M" />
@@ -21,14 +21,14 @@
     <body>
         		<nav class="nav">
 			<div class="nav-container">
-				<a href="https://varun19299.github.io/wireless-lab-iitm/">
+				<a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/">
 					<h2 class="nav-title">Wireless Lab IIT-M</h2>
 				</a>
 				<ul>
     
     
         <li>
-            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+            <a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/">
                 
                 <span>About</span>
                 
@@ -36,7 +36,7 @@
         </li>
     
         <li>
-            <a href="https://varun19299.github.io/wireless-lab-iitm/posts/">
+            <a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/">
                 
                 <span>Posts</span>
                 
@@ -44,7 +44,7 @@
         </li>
     
         <li>
-            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+            <a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/">
                 
                 <span></span>
                 
@@ -73,7 +73,7 @@
         "@type" : "BlogPosting",
         "mainEntityOfPage": {
              "@type": "WebPage",
-             "@id": "https:\/\/varun19299.github.io\/wireless-lab-iitm\/"
+             "@id": "https:\/\/varun19299.github.io\/ID4100-Wireless-Lab-IITM\/"
         },
         "articleSection" : "posts",
         "name" : "OFDM Synchronisation: Schmidl and Cox Technique ",
@@ -88,7 +88,7 @@
         "copyrightYear" : "0001",
         "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
         "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
-        "url" : "https:\/\/varun19299.github.io\/wireless-lab-iitm\/posts\/6-schmidl-cox\/",
+        "url" : "https:\/\/varun19299.github.io\/ID4100-Wireless-Lab-IITM\/posts\/6-schmidl-cox\/",
         "wordCount" : "3638",
         "keywords" : [ "Blog" ]
     }
@@ -105,7 +105,7 @@ plt.grid(True); plt.xlabel('Time $t$'); plt.ylabel('$x(t)$'); plt.xlim((0, len(S
 plt.text(len(S)/2, 0, &quot;Where is the OFDM symbol?&quot;, va='center', ha='center', fontsize=20, color='red');
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_1_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_1_0.png" alt="png" /></p>
 
 <p>In the previous example where we described an OFDM system in python, we have described the OFDM modulation and demodulation, including channel estimation and CP insertion. However, in all these works, we have assumed that the receiver knows, at which point in time the OFDM symbol is received and hence on which received samples to perform the FFT.</p>
 
@@ -140,7 +140,7 @@ plt.text(len(S)/2, 0, &quot;Where is the OFDM symbol?&quot;, va='center', ha='ce
 \draw [decorate, decoration={brace,amplitude=5pt,mirror}] (2,-0.2) -- +(4*2.2,0) node [midway,below,yshift=-5pt] {N OFDM Symbols};
 ``` -->
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_4_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_4_0.png" alt="png" /></p>
 
 <p>Each frame starts with a preamble which consists of two repeated parts, denoted by $A$. Subsequently, there will be $N$ OFDM symbols following containing the payload information. Note that in the Schmidl and Cox proposal, also the preamble can contain information, as the part $A$ can be arbitrary. The only criterion is that the part is repeated twice.</p>
 
@@ -205,7 +205,7 @@ plt.xlim((-ofdm.K/2, ofdm.K/2))
 plt.tight_layout();
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_13_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_13_0.png" alt="png" /></p>
 
 <p>Now, that we can create a preamble, let&rsquo;s write a function that creates one frame according to the structure defined earlier:</p>
 
@@ -234,7 +234,7 @@ for s in range(ofdm.ofdmSymbolsPerFrame):
 plt.xlabel('n [Samples]'); plt.ylabel('$|x[n]|$'); plt.title('One OFDM Frame $x[n]$');
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_17_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_17_0.png" alt="png" /></p>
 
 <p>Now, let&rsquo;s define the channel, which we model with some functions:</p>
 
@@ -261,7 +261,7 @@ plt.plot(abs(r));
 plt.xlabel('Time samples $n$'); plt.ylabel('$|x[n]|$'); plt.grid(True);
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_21_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_21_0.png" alt="png" /></p>
 
 <p>Now that we can create a receive signal, we can implement the proposed synchronization algorithm. The algorithm is based on a metric which is calculated from the received signal. In short, when the metric goes beyond a certain threshold, the preamble is detected.</p>
 
@@ -291,7 +291,7 @@ plt.annotate(s='', xy=(0, 4*310), xytext=(sto,4*310), arrowprops=dict(arrowstyle
 plt.text(0.5*sto, 4*310, 'Timing offset', va='bottom', ha='center', fontsize=10);
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_25_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_25_0.png" alt="png" /></p>
 
 <p>As we see, the metric $P(d)$ shows a plateau starting at the timing offset. Moreover, the plateau has the width equal to the CP length. With this observation, it might be problematic to determine the exact start of the OFDM frame as no distinct peak occurs. However, by using the CP we explicitely allow to overcome slight timing offsets and subsequent channel estimation will recover the residual timing offset.</p>
 
@@ -317,7 +317,7 @@ plt.plot(d_set, abs(P1), 'r', label='$P(d)$ (equation (5))')
 plt.legend(); plt.grid(True); plt.xlabel('$d$'); plt.ylabel('$|P(d)|$'); plt.ylim(-10, 4*350);
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_27_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_27_0.png" alt="png" /></p>
 
 <p>Unsurprisingly, both methods yield the same result. Let&rsquo;s see, what happens, if we set the initial condition to $P(0)=0$ to overcome the initial calculation of $P(0)$:</p>
 
@@ -327,7 +327,7 @@ plt.plot(d_set, abs(P1), 'r', label='$P(d)$ (equation (5))')
 plt.legend(); plt.grid(True); plt.xlabel('$d$'); plt.ylabel('$|P(d)|$'); plt.ylim((-10, 4*350));
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_29_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_29_0.png" alt="png" /></p>
 
 <p>The curve marginally changes, however the general shape remains the same. To further formalize the calculation of $P(d)$ let us define the following signal $v[d]$ by</p>
 
@@ -366,7 +366,7 @@ plt.annotate(s='', xy=(sto,4*310), xytext=(sto+2*ofdm.L,4*310), arrowprops=dict(
 plt.text(sto+ofdm.L, 4*310, '$2L$ Filter Delay', va='bottom', ha='center', fontsize=10);
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_31_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_31_0.png" alt="png" /></p>
 
 <p>Apparently, the filter has a delay of $2L$ samples compared to the non-causal (and hence not realizable) original implementation. Now, given that we have a linear IIR filter, it might be interesting to look at its impulse response:</p>
 
@@ -378,7 +378,7 @@ plt.plot(np.arange(len(impulse)), scipy.signal.lfilter(b, a, impulse))
 plt.ylim((-0.1,1.1)); plt.grid(True); plt.xlabel('Samples'); plt.ylabel('$h[n]$'); plt.title('Response to $v[n]=\\delta[n-500]$');
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_33_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_33_0.png" alt="png" /></p>
 
 <p>The impulse response of the filter is a rect function of width of $L$ samples. This makes sense, looking at equation (5) in the original paper. But wait, &hellip; didn&rsquo;t we just say we have an IIR (infinite impulse response) filter? Hm, let&rsquo;s have a look in more detail into the Z domain of the filter. Here, we simplify a bit and use the common $x[n]$ and $y[n]$ for input and output signals, respectively:</p>
 
@@ -439,7 +439,7 @@ plt.annotate(s='', xy=(0,4*270), xytext=(2*ofdm.L,4*270), arrowprops=dict(arrows
 plt.text(ofdm.L, 4*270, '$2L$ Filter Delay', va='bottom', ha='center', fontsize=10);
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_37_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_37_0.png" alt="png" /></p>
 
 <h3 id="calculating-the-final-metric-m-d">Calculating the final metric $M(d)$</h3>
 
@@ -470,7 +470,7 @@ plt.gca().add_patch(patches.Rectangle((sto,0), ofdm.CP, 5, hatch='/', fill=None,
 plt.text(sto+ofdm.CP/1.5, 2.5, 'Cyclic prefix', rotation=90, va='center', ha='center');
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_39_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_39_0.png" alt="png" /></p>
 
 <p>As shown, the original $M(d)$ reaches the maximum, when the preamble starts. However, this filter is non-causal, as it requires knowledge of the upcoming samples from the signal. The causal version $\bar{M}(d)$ has a delay of 2L samples but is practically realizable.</p>
 
@@ -552,7 +552,7 @@ plt.plot(SNRs, mu - 3*std, color='r', lw=2, ls='--')
 plt.grid(True); plt.legend(); plt.xlabel('SNR [dB]'); plt.ylabel('$M(d_{opt})$'); plt.ylim((0,1));
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_46_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_46_0.png" alt="png" /></p>
 
 <p>Apparently, the simulated and theoretic curves overlap. Moreover, the values coincide with Fig. 4 from the original reference.</p>
 
@@ -593,7 +593,7 @@ plt.xlabel('n [Samples]'); plt.ylabel('$|x[n]|$'); plt.title('One OFDM Frame $x[
 plt.legend(fontsize=9);
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_49_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_49_0.png" alt="png" /></p>
 
 <p>Now, let&rsquo;s create a signal consisting of 3 frames with some delays between them. We plot the signal and the corresponding genie-sync information.</p>
 
@@ -617,7 +617,7 @@ plt.plot(payload_valid, label='Payload valid')
 plt.grid(True); plt.xlabel('$n$'); plt.ylabel('$|x[n]|$'); plt.legend(fontsize=10); plt.xlim((0, len(rx_signal)));
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_51_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_51_0.png" alt="png" /></p>
 
 <p>Now, the task is to write a function that recreates the sync-info solely based on the received signal. To start out, let&rsquo;s calculate the our metric and plot it on top of the preamble_valid metric.</p>
 
@@ -643,7 +643,7 @@ plt.tight_layout();
 plt.ylim((0, 3));
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_53_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_53_0.png" alt="png" /></p>
 
 <p>As visible in the zoomed-in version, the genie preamble-valid signal becomes true at the end of the plateau of the metric. Hence, we need to write an algorithm that detects the end of the plateau. We know, the plateau has a with of the size of the CP. One option to transform the plateau into a peak is to perform a matched filtering operation with a rectangle of the width of the plateau:</p>
 
@@ -669,7 +669,7 @@ plt.xlim((400, 1400)); plt.ylim((0,0.4));
 plt.xlabel('$n$'); plt.ylabel('$M(n)$'); plt.grid(True); plt.legend(fontsize=10, loc='best');
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_55_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_55_0.png" alt="png" /></p>
 
 <p>As shown, the filtering with a rectangle as two effects: First, it smooths out some noise, second it transforms the plateau into a peak, though the peak is not very pronounced. Let us now try to perform some peak detection on the green line. As known, a peak in a curve corresponds to a zero in its derivative. So, let&rsquo;s look at the derivative:</p>
 
@@ -679,7 +679,7 @@ plt.plot(preamble_start, label='Preamble start', color='r')
 plt.ylim((-0.002,0.002)); plt.grid(True); plt.legend(fontsize=10);
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_57_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_57_0.png" alt="png" /></p>
 
 <p>This looks good already! The derivative seems to have zeros where the preamble starts. Let&rsquo;s further investigate and detect the zero-crossings of the derivative. The zero-crossings of a signal are determined by a sign change of adjacent samples, hence the product of two adjacent samples should be negative:</p>
 
@@ -689,7 +689,7 @@ plt.plot(preamble_start, label='Preamble start');
 plt.grid(True); plt.legend(fontsize=10); plt.ylim((-0.1, 1.1));
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_59_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_59_0.png" alt="png" /></p>
 
 <p>Hm, there are a lot of erroneous zero-crossings detected. Sure, when the metric is small (i.e. there is no preamble), there is only noise on the preamble, and there a lot of zero-crossings happen. So, let&rsquo;s add another criterion: Detect the zero-crossings, where the metric goes beyond a certain threshold:</p>
 
@@ -699,7 +699,7 @@ plt.plot(preamble_start, label='Preamble start');
 plt.grid(True); plt.legend(fontsize=10); plt.ylim((-0.1, 1.1));
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_61_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_61_0.png" alt="png" /></p>
 
 <p>Ah, this looks much better. But, now let&rsquo;s zoom into one preamble start to examine a bit more in detail how the detected zero-crossings look:</p>
 
@@ -711,7 +711,7 @@ plt.xlim((1000, 1200))
 plt.grid(True); plt.legend(fontsize=10); plt.ylim((-0.3, 1.1));
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_63_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_63_0.png" alt="png" /></p>
 
 <p>Hm, there are multiple zero-crossings detected. This is clear, when looking at the derivative, as it indeed has multiple zero-crossings. Moreover, the position of the detected zero-crossings does not match exactly the expected position. Instead, the zero-crossings appear few samples before the correct starting point. However, this is not a problem as the OFDM symbol contains a CP and hence makes it robust against slight timing misalignments.</p>
 
@@ -729,7 +729,7 @@ plt.xlim((1000, 1200))
 plt.grid(True); plt.legend(fontsize=10); plt.ylim((-0.3, 1.1));
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_65_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_65_0.png" alt="png" /></p>
 
 <p>Now, we delete all detected zero-crossings when the ignore-window is non-zero:</p>
 
@@ -741,7 +741,7 @@ plt.xlim((1000, 1200))
 plt.grid(True); plt.legend(fontsize=10); plt.ylim((-0.3, 1.1));
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_67_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_67_0.png" alt="png" /></p>
 
 <p>Now, we have extracted the first zero-crossing and hence extracted an estimate of the preamble start. As the final step, we need to extract the OFDM symbols and preamble from the received signal stream. Let&rsquo;s simply do this with a FIR filter describing the structure of the frame:</p>
 
@@ -763,7 +763,7 @@ plt.plot(payload_valid_est, label='Payload valid', color='r', ls='--')
 plt.grid(True); plt.xlabel('$n$'); plt.ylabel('$|x[n]|$'); plt.legend(fontsize=10); plt.xlim((0, len(rx_signal)));
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/6-schmidl-cox_files/6-schmidl-cox_69_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/6-schmidl-cox_files/6-schmidl-cox_69_0.png" alt="png" /></p>
 
 <p>Great! Now, we have nicely extracted the OFDM payload symbols excluding the CP. The estimated frame position sufficiently matches the exact positions of the symbols. However, due to the CP, a slight timing offset is not problematic.</p>
 
@@ -796,8 +796,8 @@ plt.grid(True); plt.xlabel('$n$'); plt.ylabel('$|x[n]|$'); plt.legend(fontsize=1
 	</div>
 
 	<div class="pagination">
-		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/4-ofdm-python/" class="left arrow">&#8592;</a>
-		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/9-ofdm-channel-est/" class="right arrow">&#8594;</a>
+		<a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/4-ofdm-python/" class="left arrow">&#8592;</a>
+		<a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/9-ofdm-channel-est/" class="right arrow">&#8594;</a>
 
 		<a href="#" class="top">Top</a>
 	</div>

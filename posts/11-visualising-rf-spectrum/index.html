@@ -7,12 +7,12 @@
 		<title>Visualising RF Spectrum &middot; Wireless Lab IIT-M</title>
 
 		
-  		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/style.css">
-		<link rel="stylesheet" href="https://varun19299.github.io/wireless-lab-iitm/css/fonts.css">
+  		<link rel="stylesheet" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/css/style.css">
+		<link rel="stylesheet" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/css/fonts.css">
 		
-		<link rel="icon" type="image/png" sizes="32x32" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="https://varun19299.github.io/wireless-lab-iitm/images/favicon-16x16.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="https://varun19299.github.io/wireless-lab-iitm/images/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/images/apple-touch-icon.png">
 
 		
 		<link href="" rel="alternate" type="application/rss+xml" title="Wireless Lab IIT-M" />
@@ -21,14 +21,14 @@
     <body>
         		<nav class="nav">
 			<div class="nav-container">
-				<a href="https://varun19299.github.io/wireless-lab-iitm/">
+				<a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/">
 					<h2 class="nav-title">Wireless Lab IIT-M</h2>
 				</a>
 				<ul>
     
     
         <li>
-            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+            <a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/">
                 
                 <span>About</span>
                 
@@ -36,7 +36,7 @@
         </li>
     
         <li>
-            <a href="https://varun19299.github.io/wireless-lab-iitm/posts/">
+            <a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/">
                 
                 <span>Posts</span>
                 
@@ -44,7 +44,7 @@
         </li>
     
         <li>
-            <a href="https://varun19299.github.io/wireless-lab-iitm/">
+            <a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/">
                 
                 <span></span>
                 
@@ -73,7 +73,7 @@
         "@type" : "BlogPosting",
         "mainEntityOfPage": {
              "@type": "WebPage",
-             "@id": "https:\/\/varun19299.github.io\/wireless-lab-iitm\/"
+             "@id": "https:\/\/varun19299.github.io\/ID4100-Wireless-Lab-IITM\/"
         },
         "articleSection" : "posts",
         "name" : "Visualising RF Spectrum",
@@ -88,7 +88,7 @@
         "copyrightYear" : "0001",
         "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
         "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
-        "url" : "https:\/\/varun19299.github.io\/wireless-lab-iitm\/posts\/11-visualising-rf-spectrum\/",
+        "url" : "https:\/\/varun19299.github.io\/ID4100-Wireless-Lab-IITM\/posts\/11-visualising-rf-spectrum\/",
         "wordCount" : "2939",
         "keywords" : [ "Blog" ]
     }
@@ -100,7 +100,7 @@
 
 <p>Tools that help visualise the radio frequency (RF) spectrum play an important role in understanding the nature of these radio waves and in manipulating them. Generated radio waves may occupy a spectrum of frequencies centered around a particular carrier wave. For example, transmissions from an Airtel 4G (LTE) tower occupies 20 MHz centered around 2.340 GHz. For such a transmission 20 MHz signifies the <strong>bandwidth</strong> and 2.340 GHz is the <strong>center frequency</strong>.</p>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/lte_photo.png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/lte_photo.png" /></p>
 
 <p>The above figure is presented to provide some intuition into the composition of a 4G RF transmission. The transmitter generates EM wave components with frequency between 2.330 GHz and 2.350 GHz and therefore they have appreciable amplitude. Components outside this frequency range are not generated. It is worth noting here that as with any physical system, there is some noise in radio frequencies as well. This noise has many sources and detailed discussion is out of the scope of this post. As far as we are concerned, there is a hard lower limit to the amplitude (or power) of signals that we can detect. This limit is called the &ldquo;noise floor&rdquo; and signals with power below the noise floor are not directly detectable unless some complex processing is performed (Imagine calling out to your friend during Saarang EDM Night :P). Further, the signals beyond 2.350 GHz are ones from other 4G towers operated by various companies. In this post, we&rsquo;ll go through the following:</p>
 
@@ -220,7 +220,7 @@ Signal Frequency is 250 Hz
 DFT length n is 200
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/11-visualising-rf-spectrum_files/11-visualising-rf-spectrum_12_1.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/11-visualising-rf-spectrum_files/11-visualising-rf-spectrum_12_1.png" alt="png" /></p>
 
 <p>In the above example, the signal analysed is a real sinusoid of frequency <code>f_c</code>. Note that the x-axis in the figure is the frequency bin index: index 0 corresponds to <code>-f_s/2</code> and index <code>n</code> corresponds to <code>+f_s/2</code>. The frequency scales linearly across the indices from 0 to <code>n</code>. From this point onwards, we&rsquo;ll replace frequency bins with the corresponding frequency itself. Note that the best frequency resolution possible with a DFT of length <code>n</code> is <code>f_s/n</code>. As expected, we see two spikes in the spectrum at <code>f_c</code> and <code>-f_c</code>. This is because our signal is a real sinusoid. Let&rsquo;s create a complex sinusoid with the same frequency and observe what happens.</p>
 
@@ -278,7 +278,7 @@ Signal Center Frequency is 250 Hz
 DFT length n is 200
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/11-visualising-rf-spectrum_files/11-visualising-rf-spectrum_14_1.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/11-visualising-rf-spectrum_files/11-visualising-rf-spectrum_14_1.png" alt="png" /></p>
 
 <p>In baseband RF signal processing, we usually have two streams of data: the I and Q components. These are processed as complex baseband signals. In the first plot in the example above, the I stream is <code>cos(2*np.pi*f_c*t)</code> and the Q stream is <code>sin(2*np.pi*f_c*t)</code>. Now let&rsquo;s look at a signal with finite bandwidth. The second example shows an FM (frequency modulation) Waveform riding on a carrier cosine of frequency <code>f_c</code>. It is clearly seen that a lot of frequency components around the center frequency <code>f_c</code> have energy. Here, the range of contiguous frequencies with non zero (almost) power indicate  the bandwidth. Also note that we have interpolated the frequency domain representation rather than plotting it as a discrete set of values.</p>
 
@@ -341,7 +341,7 @@ plt.show()
 STFT block length n_fft is 1024
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/11-visualising-rf-spectrum_files/11-visualising-rf-spectrum_18_1.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/11-visualising-rf-spectrum_files/11-visualising-rf-spectrum_18_1.png" alt="png" /></p>
 
 <p>There are few points to note in the above example:
 1. An STFT is commonly visualised as a 2D image. In the example, the x-axis represents frequency while the y-axis represents time. The color corresponds to the magnitude of the frequency component at a particular time instant.
@@ -366,13 +366,13 @@ plt.ylabel('Time (s)',fontsize='large');
 plt.title('Spectrogram of the Signal',fontsize='large');
 </code></pre>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/11-visualising-rf-spectrum_files/11-visualising-rf-spectrum_20_0.png" alt="png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/11-visualising-rf-spectrum_files/11-visualising-rf-spectrum_20_0.png" alt="png" /></p>
 
 <h2 id="real-life-examples">Real Life Examples</h2>
 
 <h3 id="fm-spectrum-in-chennai">FM Spectrum in Chennai</h3>
 
-<p><img src="https://varun19299.github.io/wireless-lab-iitm/posts/FM_Photo_ed.png" /></p>
+<p><img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/FM_Photo_ed.png" /></p>
 
 <p>The above image shows the instantaneous ESD and also a STFT plot across 1.8 MHz of spectrum centered at 92.7 MHz. Three FM stations are visible in the image. The first station from left is &ldquo;Fever 91.9 FM&rdquo; and operates on 91.9 MHz, the second radio station is &ldquo;Big FM&rdquo; operating on 92.7 MHz and the third one is &ldquo;Suryan FM&rdquo; at 93.5 MHz. The audio information is encoded in the frequency of the carrier wave. The energy that each radio station outputs is localised to a band of frequencies around the frequency that they&rsquo;ve been alocated. Each FM station occupies a bandwidth of close to 200 KHz. The noise floor has been marked in the ESD plot as well.</p>
 
@@ -381,17 +381,17 @@ plt.title('Spectrogram of the Signal',fontsize='large');
 <p><strong>Full Spectrogram</strong></p>
 
 <p>A software defined radio (USRP B210) was used to capture IQ samples with center frequency 2.412 GHz and sampling rate 25 MSps. 5 million samples were captured and a 1024 STFT with overlap of 64 points was performed. The below spectrogram was obtained as a result. Note that there are three distinctive transmissions in this spectrogram. In the upcoming sections, we&rsquo;ll move closer and observe these transmissions.
- <img src="https://varun19299.github.io/wireless-lab-iitm/posts/ISM_stft_small.svg" /></p>
+ <img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/ISM_stft_small.svg" /></p>
 
 <p><strong>1. WiFi</strong></p>
 
 <p>Zooming into the spectrogram at time 2.9 ms, we observe a signal centered around 2.412 GHz (and hence baseband center is at 0). This signal approximately has 20 MHz bandwidth. This is a WiFi packet that was captured over the air. The device that transmitted this packet is operating on channel 1. One can even see the STS and LTS (2.7 ms) at the start of the packet.
-<img src="https://varun19299.github.io/wireless-lab-iitm/posts/wifi_stft_small.png" /></p>
+<img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/wifi_stft_small.png" /></p>
 
 <p><strong>1. Bluetooth</strong></p>
 
 <p>Zooming into the spectrogram at time 1.45 ms, we observe a signal centered approximately at 2.1 GHz. This signal has much lower bandwidth compared to a WiFi transmission. This is a Bluetooth packet (from the author&rsquo;s bluetooth audio connection) that was captured over the air. Bluetooth uses Gaussian Frequency Shift Keying (GFSK) modulation. That is, the frequency of the signal is varied slightly between two fixed values to convey bits. The spectrogram even shows this variation.
-<img src="https://varun19299.github.io/wireless-lab-iitm/posts/bt_stft_small.png" /></p>
+<img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/bt_stft_small.png" /></p>
 
 <h2 id="exercises">Exercises</h2>
 
@@ -415,7 +415,7 @@ plt.title('Spectrogram of the Signal',fontsize='large');
 <h3 id="e-3-relative-powers">E.3 Relative Powers</h3>
 
 <p>Looking at the below spectrogram, can you make any comment about the relative strengths of the two signals highlighted? It is known that EM waves attenuate as they propagate outwards in free space. If that is the case, can you make any conclusions regarding the closeness of different transmitters to our receiver?
-<img src="https://varun19299.github.io/wireless-lab-iitm/posts/rel_pow_stft_edit.svg" /></p>
+<img src="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/rel_pow_stft_edit.svg" /></p>
 
 
 		
@@ -438,7 +438,7 @@ plt.title('Spectrogram of the Signal',fontsize='large');
 	</div>
 
 	<div class="pagination">
-		<a href="https://varun19299.github.io/wireless-lab-iitm/posts/5-conv-fft/" class="right arrow">&#8594;</a>
+		<a href="https://varun19299.github.io/ID4100-Wireless-Lab-IITM/posts/5-conv-fft/" class="right arrow">&#8594;</a>
 
 		<a href="#" class="top">Top</a>
 	</div>
